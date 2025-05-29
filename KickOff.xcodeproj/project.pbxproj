@@ -12,7 +12,6 @@
 		9D7D3DF72DE87032000AC249 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DF62DE87032000AC249 /* SceneDelegate.swift */; };
 		9D7D3DF92DE87032000AC249 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DF82DE87032000AC249 /* ViewController.swift */; };
 		9D7D3DFC2DE87032000AC249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7D3DFA2DE87032000AC249 /* Main.storyboard */; };
-		9D7D3DFF2DE87032000AC249 /* KickOff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DFD2DE87032000AC249 /* KickOff.xcdatamodeld */; };
 		9D7D3E012DE8703F000AC249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D7D3E002DE8703F000AC249 /* Assets.xcassets */; };
 		9D7D3E042DE8703F000AC249 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7D3E022DE8703F000AC249 /* LaunchScreen.storyboard */; };
 		9D7D3E0F2DE87040000AC249 /* KickOffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E0E2DE87040000AC249 /* KickOffTests.swift */; };
@@ -46,7 +45,6 @@
 		9D7D3DF62DE87032000AC249 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9D7D3DF82DE87032000AC249 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D7D3DFB2DE87032000AC249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9D7D3DFE2DE87032000AC249 /* KickOff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KickOff.xcdatamodel; sourceTree = "<group>"; };
 		9D7D3E002DE8703F000AC249 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D7D3E032DE8703F000AC249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D7D3E052DE8703F000AC249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				1CF4605133D34CD14D96C747 /* Pods-KickOff.debug.xcconfig */,
 				2A52182C4922D88A9B9989AB /* Pods-KickOff.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -125,7 +122,6 @@
 				9D7D3E002DE8703F000AC249 /* Assets.xcassets */,
 				9D7D3E022DE8703F000AC249 /* LaunchScreen.storyboard */,
 				9D7D3E052DE8703F000AC249 /* Info.plist */,
-				9D7D3DFD2DE87032000AC249 /* KickOff.xcdatamodeld */,
 			);
 			path = KickOff;
 			sourceTree = "<group>";
@@ -331,7 +327,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D7D3DF92DE87032000AC249 /* ViewController.swift in Sources */,
-				9D7D3DFF2DE87032000AC249 /* KickOff.xcdatamodeld in Sources */,
 				9D7D3DF52DE87032000AC249 /* AppDelegate.swift in Sources */,
 				9D7D3DF72DE87032000AC249 /* SceneDelegate.swift in Sources */,
 			);
@@ -671,19 +666,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9D7D3DFD2DE87032000AC249 /* KickOff.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9D7D3DFE2DE87032000AC249 /* KickOff.xcdatamodel */,
-			);
-			currentVersion = 9D7D3DFE2DE87032000AC249 /* KickOff.xcdatamodel */;
-			path = KickOff.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 9D7D3DE92DE87032000AC249 /* Project object */;
 }
