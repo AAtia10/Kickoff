@@ -15,14 +15,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyp-JO-3zc" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="splash"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kyp-JO-3zc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0of-zw-VBj"/>
+                            <constraint firstItem="kyp-JO-3zc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Kn-gD-iGK"/>
+                            <constraint firstAttribute="bottom" secondItem="kyp-JO-3zc" secondAttribute="bottom" id="ZOu-gJ-k1e"/>
+                            <constraint firstItem="kyp-JO-3zc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="c8j-4E-Dc6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5nE-Yp-zZR"/>
+                    <connections>
+                        <outlet property="animationView" destination="kyp-JO-3zc" id="W5f-zv-HIM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="930.53435114503816" y="-27.464788732394368"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="Oxt-BT-Gra">
+            <objects>
+                <viewController storyboardIdentifier="test" id="wop-0X-2pr" customClass="TestViewController" customModule="KickOff" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qlq-wl-eBR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-Ly-TLW">
+                                <rect key="frame" x="175" y="352" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fQ9-SQ-wpJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="myLabel" destination="1g0-Ly-TLW" id="uOf-08-iFq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G2C-dQ-5vq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gye-xT-L6p">
