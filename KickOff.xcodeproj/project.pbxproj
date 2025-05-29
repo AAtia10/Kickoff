@@ -115,12 +115,9 @@
 		9D7D3DF32DE87032000AC249 /* KickOff */ = {
 			isa = PBXGroup;
 			children = (
-				9D7D3DF42DE87032000AC249 /* AppDelegate.swift */,
-				9D7D3DF62DE87032000AC249 /* SceneDelegate.swift */,
-				9D7D3DF82DE87032000AC249 /* ViewController.swift */,
-				9D7D3DFA2DE87032000AC249 /* Main.storyboard */,
-				9D7D3E002DE8703F000AC249 /* Assets.xcassets */,
-				9D7D3E022DE8703F000AC249 /* LaunchScreen.storyboard */,
+				BBC2D2D02DE89BFD002278F1 /* Features */,
+				BBC2D2CF2DE89BEC002278F1 /* Resources */,
+				BBC2D2CE2DE89BD9002278F1 /* App */,
 				9D7D3E052DE8703F000AC249 /* Info.plist */,
 			);
 			path = KickOff;
@@ -149,6 +146,49 @@
 				3FC9A0B83BFCC45153C9895C /* Pods_KickOff.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BBC2D2CE2DE89BD9002278F1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9D7D3DF42DE87032000AC249 /* AppDelegate.swift */,
+				9D7D3DF62DE87032000AC249 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BBC2D2CF2DE89BEC002278F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D7D3E002DE8703F000AC249 /* Assets.xcassets */,
+				9D7D3E022DE8703F000AC249 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BBC2D2D02DE89BFD002278F1 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				BBC2D2D12DE89C06002278F1 /* Splash */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		BBC2D2D12DE89C06002278F1 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				BBC2D2D22DE89C0D002278F1 /* View */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		BBC2D2D22DE89C0D002278F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D7D3DF82DE87032000AC249 /* ViewController.swift */,
+				9D7D3DFA2DE87032000AC249 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
