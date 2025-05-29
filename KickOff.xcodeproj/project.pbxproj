@@ -17,8 +17,8 @@
 		9D7D3E0F2DE87040000AC249 /* KickOffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E0E2DE87040000AC249 /* KickOffTests.swift */; };
 		9D7D3E192DE87040000AC249 /* KickOffUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E182DE87040000AC249 /* KickOffUITests.swift */; };
 		9D7D3E1B2DE87040000AC249 /* KickOffUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */; };
-		9DD4C3802DE8A9AE0061BB3E /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DD4C37F2DE8A9AE0061BB3E /* splash.json */; };
 		9DD4C3822DE8AD640061BB3E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4C3812DE8AD640061BB3E /* TestViewController.swift */; };
+		BBC2D2E22DE8B8EB002278F1 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = BBC2D2E12DE8B8EA002278F1 /* splash.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +55,8 @@
 		9D7D3E142DE87040000AC249 /* KickOffUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KickOffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7D3E182DE87040000AC249 /* KickOffUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickOffUITests.swift; sourceTree = "<group>"; };
 		9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickOffUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9DD4C37F2DE8A9AE0061BB3E /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = ../../../Desktop/splash.json; sourceTree = "<group>"; };
 		9DD4C3812DE8AD640061BB3E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		BBC2D2E12DE8B8EA002278F1 /* splash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = splash.json; path = KickOff/Resources/splash.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +97,7 @@
 		9D7D3DE82DE87032000AC249 = {
 			isa = PBXGroup;
 			children = (
+				BBC2D2E12DE8B8EA002278F1 /* splash.json */,
 				9D7D3DF32DE87032000AC249 /* KickOff */,
 				9D7D3E0D2DE8703F000AC249 /* KickOffTests */,
 				9D7D3E172DE87040000AC249 /* KickOffUITests */,
@@ -119,7 +120,6 @@
 		9D7D3DF32DE87032000AC249 /* KickOff */ = {
 			isa = PBXGroup;
 			children = (
-				9DD4C37F2DE8A9AE0061BB3E /* splash.json */,
 				BBC2D2D02DE89BFD002278F1 /* Features */,
 				BBC2D2CF2DE89BEC002278F1 /* Resources */,
 				BBC2D2CE2DE89BD9002278F1 /* App */,
@@ -303,9 +303,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC2D2E22DE8B8EB002278F1 /* splash.json in Resources */,
 				9D7D3E042DE8703F000AC249 /* LaunchScreen.storyboard in Resources */,
 				9D7D3E012DE8703F000AC249 /* Assets.xcassets in Resources */,
-				9DD4C3802DE8A9AE0061BB3E /* splash.json in Resources */,
 				9D7D3DFC2DE87032000AC249 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
