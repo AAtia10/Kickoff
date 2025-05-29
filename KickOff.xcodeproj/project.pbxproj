@@ -10,7 +10,7 @@
 		0AD8766B6AA55305596B269C /* Pods_KickOff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC9A0B83BFCC45153C9895C /* Pods_KickOff.framework */; };
 		9D7D3DF52DE87032000AC249 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DF42DE87032000AC249 /* AppDelegate.swift */; };
 		9D7D3DF72DE87032000AC249 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DF62DE87032000AC249 /* SceneDelegate.swift */; };
-		9D7D3DF92DE87032000AC249 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DF82DE87032000AC249 /* ViewController.swift */; };
+		9D7D3DF92DE87032000AC249 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DF82DE87032000AC249 /* SplashViewController.swift */; };
 		9D7D3DFC2DE87032000AC249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7D3DFA2DE87032000AC249 /* Main.storyboard */; };
 		9D7D3DFF2DE87032000AC249 /* KickOff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DFD2DE87032000AC249 /* KickOff.xcdatamodeld */; };
 		9D7D3E012DE8703F000AC249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D7D3E002DE8703F000AC249 /* Assets.xcassets */; };
@@ -44,7 +44,7 @@
 		9D7D3DF12DE87032000AC249 /* KickOff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KickOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7D3DF42DE87032000AC249 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D7D3DF62DE87032000AC249 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D7D3DF82DE87032000AC249 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D7D3DF82DE87032000AC249 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		9D7D3DFB2DE87032000AC249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D7D3DFE2DE87032000AC249 /* KickOff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KickOff.xcdatamodel; sourceTree = "<group>"; };
 		9D7D3E002DE8703F000AC249 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,7 +89,6 @@
 				1CF4605133D34CD14D96C747 /* Pods-KickOff.debug.xcconfig */,
 				2A52182C4922D88A9B9989AB /* Pods-KickOff.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -118,14 +117,11 @@
 		9D7D3DF32DE87032000AC249 /* KickOff */ = {
 			isa = PBXGroup;
 			children = (
-				9D7D3DF42DE87032000AC249 /* AppDelegate.swift */,
-				9D7D3DF62DE87032000AC249 /* SceneDelegate.swift */,
-				9D7D3DF82DE87032000AC249 /* ViewController.swift */,
-				9D7D3DFA2DE87032000AC249 /* Main.storyboard */,
-				9D7D3E002DE8703F000AC249 /* Assets.xcassets */,
-				9D7D3E022DE8703F000AC249 /* LaunchScreen.storyboard */,
+				BBC7C5112DE88B14000B029D /* Features */,
+				BBC7C50E2DE88AC6000B029D /* Model */,
+				BBC7C50D2DE88A9E000B029D /* Resources */,
+				BBC7C50B2DE88A47000B029D /* App */,
 				9D7D3E052DE8703F000AC249 /* Info.plist */,
-				9D7D3DFD2DE87032000AC249 /* KickOff.xcdatamodeld */,
 			);
 			path = KickOff;
 			sourceTree = "<group>";
@@ -153,6 +149,65 @@
 				3FC9A0B83BFCC45153C9895C /* Pods_KickOff.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BBC7C50B2DE88A47000B029D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9D7D3DF42DE87032000AC249 /* AppDelegate.swift */,
+				9D7D3DF62DE87032000AC249 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BBC7C50C2DE88A82000B029D /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9D7D3DF82DE87032000AC249 /* SplashViewController.swift */,
+				9D7D3DFA2DE87032000AC249 /* Main.storyboard */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		BBC7C50D2DE88A9E000B029D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D7D3E022DE8703F000AC249 /* LaunchScreen.storyboard */,
+				9D7D3E002DE8703F000AC249 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BBC7C50E2DE88AC6000B029D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BBC7C5102DE88AE0000B029D /* LocalDataSource */,
+				BBC7C50F2DE88AD4000B029D /* RemoteDataSource */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BBC7C50F2DE88AD4000B029D /* RemoteDataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RemoteDataSource;
+			sourceTree = "<group>";
+		};
+		BBC7C5102DE88AE0000B029D /* LocalDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				9D7D3DFD2DE87032000AC249 /* KickOff.xcdatamodeld */,
+			);
+			path = LocalDataSource;
+			sourceTree = "<group>";
+		};
+		BBC7C5112DE88B14000B029D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				BBC7C50C2DE88A82000B029D /* Splash */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,7 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D7D3DF92DE87032000AC249 /* ViewController.swift in Sources */,
+				9D7D3DF92DE87032000AC249 /* SplashViewController.swift in Sources */,
 				9D7D3DFF2DE87032000AC249 /* KickOff.xcdatamodeld in Sources */,
 				9D7D3DF52DE87032000AC249 /* AppDelegate.swift in Sources */,
 				9D7D3DF72DE87032000AC249 /* SceneDelegate.swift in Sources */,
