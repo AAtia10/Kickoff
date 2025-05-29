@@ -17,9 +17,13 @@
 		9D7D3E0F2DE87040000AC249 /* KickOffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E0E2DE87040000AC249 /* KickOffTests.swift */; };
 		9D7D3E192DE87040000AC249 /* KickOffUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E182DE87040000AC249 /* KickOffUITests.swift */; };
 		9D7D3E1B2DE87040000AC249 /* KickOffUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */; };
-
 		9DD4C3822DE8AD640061BB3E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4C3812DE8AD640061BB3E /* TestViewController.swift */; };
 		BBC2D2E22DE8B8EB002278F1 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = BBC2D2E12DE8B8EA002278F1 /* splash.json */; };
+		BBC2D2F12DE8D7BA002278F1 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D2EF2DE8D7BA002278F1 /* OnBoardingViewController.swift */; };
+		BBC2D2F22DE8D7BA002278F1 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D2F02DE8D7BA002278F1 /* ContainerViewController.swift */; };
+		BBC2D2F42DE8D7CA002278F1 /* onBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC2D2F32DE8D7CA002278F1 /* onBoarding.storyboard */; };
+		BBC2D2F72DE8D8C4002278F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D2F52DE8D8C4002278F1 /* HomeViewController.swift */; };
+		BBC2D2F82DE8D8C4002278F1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC2D2F62DE8D8C4002278F1 /* Home.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +60,13 @@
 		9D7D3E142DE87040000AC249 /* KickOffUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KickOffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7D3E182DE87040000AC249 /* KickOffUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickOffUITests.swift; sourceTree = "<group>"; };
 		9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickOffUITestsLaunchTests.swift; sourceTree = "<group>"; };
-
 		9DD4C3812DE8AD640061BB3E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		BBC2D2E12DE8B8EA002278F1 /* splash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = splash.json; path = KickOff/Resources/splash.json; sourceTree = "<group>"; };
+		BBC2D2EF2DE8D7BA002278F1 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		BBC2D2F02DE8D7BA002278F1 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		BBC2D2F32DE8D7CA002278F1 /* onBoarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = onBoarding.storyboard; sourceTree = "<group>"; };
+		BBC2D2F52DE8D8C4002278F1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BBC2D2F62DE8D8C4002278F1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +221,7 @@
 		BBC2D2D42DE89CD7002278F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BBC2D2D52DE89CFB002278F1 /* onBoarding.storyboard */,
+				BBC2D2F32DE8D7CA002278F1 /* onBoarding.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,8 +229,8 @@
 		BBC2D2D72DE8A1D1002278F1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BBC2D2D82DE8A206002278F1 /* OnBoardingViewController.swift */,
-				BBC2D2DA2DE8A25D002278F1 /* ContainerViewController.swift */,
+				BBC2D2F02DE8D7BA002278F1 /* ContainerViewController.swift */,
+				BBC2D2EF2DE8D7BA002278F1 /* OnBoardingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,8 +238,8 @@
 		BBC2D2DC2DE8AA62002278F1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				BBC2D2DD2DE8AA7E002278F1 /* Home.storyboard */,
-				BBC2D2DF2DE8AA91002278F1 /* HomeViewController.swift */,
+				BBC2D2F62DE8D8C4002278F1 /* Home.storyboard */,
+				BBC2D2F52DE8D8C4002278F1 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -344,10 +352,10 @@
 			files = (
 				BBC2D2E22DE8B8EB002278F1 /* splash.json in Resources */,
 				9D7D3E042DE8703F000AC249 /* LaunchScreen.storyboard in Resources */,
-				BBC2D2DE2DE8AA7E002278F1 /* Home.storyboard in Resources */,
+				BBC2D2F42DE8D7CA002278F1 /* onBoarding.storyboard in Resources */,
+				BBC2D2F82DE8D8C4002278F1 /* Home.storyboard in Resources */,
 				9D7D3E012DE8703F000AC249 /* Assets.xcassets in Resources */,
 				9D7D3DFC2DE87032000AC249 /* Main.storyboard in Resources */,
-				BBC2D2D62DE89CFB002278F1 /* onBoarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,11 +424,11 @@
 			files = (
 				9D7D3DF92DE87032000AC249 /* ViewController.swift in Sources */,
 				9D7D3DF52DE87032000AC249 /* AppDelegate.swift in Sources */,
-
 				9DD4C3822DE8AD640061BB3E /* TestViewController.swift in Sources */,
 				9D7D3DF72DE87032000AC249 /* SceneDelegate.swift in Sources */,
-				BBC2D2D92DE8A206002278F1 /* OnBoardingViewController.swift in Sources */,
-				BBC2D2E02DE8AA91002278F1 /* HomeViewController.swift in Sources */,
+				BBC2D2F22DE8D7BA002278F1 /* ContainerViewController.swift in Sources */,
+				BBC2D2F72DE8D8C4002278F1 /* HomeViewController.swift in Sources */,
+				BBC2D2F12DE8D7BA002278F1 /* OnBoardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

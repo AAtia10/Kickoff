@@ -25,12 +25,23 @@ class ViewController: UIViewController {
           
         animationView.play()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
-               guard let self = self else { return }
-            let testVC  : TestViewController = storyboard?.instantiateViewController(withIdentifier: "test") as! TestViewController
-            navigationController?.setViewControllers([testVC], animated: true)
+//               guard let self = self else { return }
+//            let testVC  : TestViewController = storyboard?.instantiateViewController(withIdentifier: "test") as! TestViewController
+//            navigationController?.setViewControllers([testVC], animated: true)
+            
+            self?.navigationOnBoarding()
+            
            }
         
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func navigationOnBoarding(){
+        let onboardingStoryboard = UIStoryboard(name: "onBoarding", bundle: nil)
+        let onboardingVC = onboardingStoryboard.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
+        
+        navigationController?.setViewControllers([onboardingVC], animated: true)
     }
 
 
