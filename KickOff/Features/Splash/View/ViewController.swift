@@ -6,11 +6,30 @@
 //
 
 import UIKit
+import Lottie
 
 class ViewController: UIViewController {
-
+    
+  
+    @IBOutlet weak var animationView: LottieAnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        animationView.contentMode = .scaleAspectFit
+          
+        animationView.loopMode = .loop
+          
+          
+        animationView.animationSpeed = 0.5
+          
+        animationView.play()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+               guard let self = self else { return }
+            let testVC  : TestViewController = storyboard?.instantiateViewController(withIdentifier: "test") as! TestViewController
+            navigationController?.setViewControllers([testVC], animated: true)
+           }
+        
         // Do any additional setup after loading the view.
     }
 
