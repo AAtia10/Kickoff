@@ -59,7 +59,7 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
         let league = leagues[indexPath.row]
        cell.leagueName.text = league.league_name
         if let logo = league.league_logo, let url = URL(string: logo) {
-            cell.leagueImage.kf.setImage(with: url)
+            cell.leagueImage.kf.setImage(with: url , placeholder: UIImage(named: "footballPlaceholder"))
         } else {
             cell.leagueImage.image = UIImage(named: "footballPlaceholder")
         }

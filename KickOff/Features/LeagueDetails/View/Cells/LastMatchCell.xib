@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22129"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="LastMatchCell" customModule="KickOff" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="140"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="325" height="140"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccerball" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="l7b-vz-Q7D">
+                        <rect key="frame" x="30.666666666666671" y="17" width="64" height="62.666666666666671"/>
+                        <color key="tintColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="LEf-zk-Ma5"/>
+                            <constraint firstAttribute="height" constant="64" id="NYF-eq-qIv"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team1Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vd-cP-Mvh">
+                        <rect key="frame" x="16" y="96" width="93" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccerball.inverse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="O4B-sk-rX6">
+                        <rect key="frame" x="229" y="17" width="64" height="62.666666666666671"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="jz5-hV-Agu"/>
+                            <constraint firstAttribute="width" constant="64" id="nda-zW-WXI"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team2Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKg-LM-mtx">
+                        <rect key="frame" x="213" y="96" width="96" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZl-ZE-QA6">
+                        <rect key="frame" x="144" y="66.333333333333329" width="37" height="32.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+            <constraints>
+                <constraint firstItem="aKg-LM-mtx" firstAttribute="top" secondItem="8Vd-cP-Mvh" secondAttribute="top" id="A1t-kb-7Cf"/>
+                <constraint firstItem="8Vd-cP-Mvh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="HXM-ww-Vbc"/>
+                <constraint firstAttribute="trailing" secondItem="aKg-LM-mtx" secondAttribute="trailing" constant="16" id="LyY-aD-G3m"/>
+                <constraint firstItem="l7b-vz-Q7D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="WbV-RV-vcB"/>
+                <constraint firstItem="tZl-ZE-QA6" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="YDD-dF-mdv"/>
+                <constraint firstItem="tZl-ZE-QA6" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="dS2-aN-qbN"/>
+                <constraint firstItem="l7b-vz-Q7D" firstAttribute="centerX" secondItem="8Vd-cP-Mvh" secondAttribute="centerX" id="n7E-By-N6G"/>
+                <constraint firstItem="8Vd-cP-Mvh" firstAttribute="top" secondItem="l7b-vz-Q7D" secondAttribute="bottom" constant="16" id="ncO-Dp-9XH"/>
+                <constraint firstItem="O4B-sk-rX6" firstAttribute="centerX" secondItem="aKg-LM-mtx" secondAttribute="centerX" id="tvD-9A-3n5"/>
+                <constraint firstItem="O4B-sk-rX6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="wIU-fw-pAh"/>
+            </constraints>
+            <size key="customSize" width="325" height="144"/>
+            <point key="canvasLocation" x="387.02290076335879" y="3.5211267605633805"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="soccerball" catalog="system" width="128" height="123"/>
+        <image name="soccerball.inverse" catalog="system" width="128" height="123"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
