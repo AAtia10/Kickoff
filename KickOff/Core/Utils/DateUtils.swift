@@ -1,0 +1,24 @@
+import Foundation
+
+class DateUtils {
+    static func dateTwoMonthsAgo() -> String {
+        let date = Calendar.current.date(byAdding: .month, value: -2, to: Date())!
+        return formatted(date)
+    }
+
+    static func dateToday() -> String {
+        return formatted(Date())
+    }
+
+    static func dateNextMonth() -> String {
+        let date = Calendar.current.date(byAdding: .month, value: 1, to: Date())!
+        return formatted(date)
+    }
+
+    private static func formatted(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(identifier: "Africa/Cairo")
+        return formatter.string(from: date)
+    }
+}
