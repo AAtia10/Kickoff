@@ -12,18 +12,16 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        RemoteDataSource.shared.getAllLeagues(for: .football) { result in
+            switch result {
+            case .success(let leagues):
+                for league in leagues {
+                    print("League: \(league.league_name), Country: \(league.country_name)")
+                }
+            case .failure(let error):
+                print("Error fetching leagues:", error)
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
