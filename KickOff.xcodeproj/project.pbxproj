@@ -24,11 +24,11 @@
 		BBC005DE2DE99A1500DE1FF3 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC005DD2DE99A1500DE1FF3 /* League.swift */; };
 		BBC005E02DE9B44000DE1FF3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC005DF2DE9B44000DE1FF3 /* Endpoint.swift */; };
 		BBC005E42DE9B72100DE1FF3 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC005E32DE9B72100DE1FF3 /* LocalDataSource.swift */; };
+		BBC005E72DE9BA7600DE1FF3 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC005E62DE9BA7600DE1FF3 /* HomeCollectionViewController.swift */; };
 		BBC2D2E22DE8B8EB002278F1 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = BBC2D2E12DE8B8EA002278F1 /* splash.json */; };
 		BBC2D2F12DE8D7BA002278F1 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D2EF2DE8D7BA002278F1 /* OnBoardingViewController.swift */; };
 		BBC2D2F22DE8D7BA002278F1 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D2F02DE8D7BA002278F1 /* ContainerViewController.swift */; };
 		BBC2D2F42DE8D7CA002278F1 /* onBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC2D2F32DE8D7CA002278F1 /* onBoarding.storyboard */; };
-		BBC2D2F72DE8D8C4002278F1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D2F52DE8D8C4002278F1 /* HomeViewController.swift */; };
 		BBC2D2F82DE8D8C4002278F1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC2D2F62DE8D8C4002278F1 /* Home.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -73,11 +73,11 @@
 		BBC005DD2DE99A1500DE1FF3 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		BBC005DF2DE9B44000DE1FF3 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		BBC005E32DE9B72100DE1FF3 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
+		BBC005E62DE9BA7600DE1FF3 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		BBC2D2E12DE8B8EA002278F1 /* splash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = splash.json; path = KickOff/Resources/splash.json; sourceTree = "<group>"; };
 		BBC2D2EF2DE8D7BA002278F1 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		BBC2D2F02DE8D7BA002278F1 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		BBC2D2F32DE8D7CA002278F1 /* onBoarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = onBoarding.storyboard; sourceTree = "<group>"; };
-		BBC2D2F52DE8D8C4002278F1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BBC2D2F62DE8D8C4002278F1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +221,15 @@
 			path = Local;
 			sourceTree = "<group>";
 		};
+		BBC005E52DE9BA1300DE1FF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BBC2D2F62DE8D8C4002278F1 /* Home.storyboard */,
+				BBC005E62DE9BA7600DE1FF3 /* HomeCollectionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BBC2D2CE2DE89BD9002278F1 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,8 +305,7 @@
 		BBC2D2DC2DE8AA62002278F1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				BBC2D2F62DE8D8C4002278F1 /* Home.storyboard */,
-				BBC2D2F52DE8D8C4002278F1 /* HomeViewController.swift */,
+				BBC005E52DE9BA1300DE1FF3 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -488,9 +496,9 @@
 				9DD4C3822DE8AD640061BB3E /* TestViewController.swift in Sources */,
 				9D7D3DF72DE87032000AC249 /* SceneDelegate.swift in Sources */,
 				BBC2D2F22DE8D7BA002278F1 /* ContainerViewController.swift in Sources */,
-				BBC2D2F72DE8D8C4002278F1 /* HomeViewController.swift in Sources */,
 				BBC005DE2DE99A1500DE1FF3 /* League.swift in Sources */,
 				BBC005E02DE9B44000DE1FF3 /* Endpoint.swift in Sources */,
+				BBC005E72DE9BA7600DE1FF3 /* HomeCollectionViewController.swift in Sources */,
 				BBC005E42DE9B72100DE1FF3 /* LocalDataSource.swift in Sources */,
 				BBC2D2F12DE8D7BA002278F1 /* OnBoardingViewController.swift in Sources */,
 			);

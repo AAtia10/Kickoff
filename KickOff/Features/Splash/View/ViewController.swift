@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 //            let testVC  : TestViewController = storyboard?.instantiateViewController(withIdentifier: "test") as! TestViewController
 //            navigationController?.setViewControllers([testVC], animated: true)
             
-            self?.navigationOnBoarding()
+            self?.navigateToHome()
             
            }
         
@@ -37,12 +37,20 @@ class ViewController: UIViewController {
     }
     
     
-    func navigationOnBoarding(){
+    func navigateToOnBoarding(){
         let onboardingStoryboard = UIStoryboard(name: "onBoarding", bundle: nil)
         let onboardingVC = onboardingStoryboard.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
         
         navigationController?.setViewControllers([onboardingVC], animated: true)
     }
+    
+    func navigateToHome(){
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "home")
+        self.navigationController?.setViewControllers([homeVC], animated: true)
+    }
+    
+    
 
 
 }
