@@ -6,17 +6,38 @@
 //
 
 import UIKit
+import Kingfisher
 
-class LeaguesViewController: UITableViewController {
-    let sports: [SportType] = SportType.allCases
 
+protocol LeaguesProtocol: AnyObject {
+    func renderLeagues(leagues: [League])
+}
+
+
+class LeaguesViewController: UITableViewController,LeaguesProtocol {
+        
+        var presenter: LeaguesPresenter!
+        var leagues: [League] = []
+        var sportType: SportType = .football
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let nib=UINib(nibName: "LeaguesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         
+        presenter = LeaguesPresenter(view: self)
+        presenter.fetchLeagues(for: sportType)
+        
     }
+    
+    func renderLeagues(leagues: [League]) {
+           DispatchQueue.main.async {
+               self.leagues = leagues
+               self.tableView.reloadData()
+           }
+       }
 
     // MARK: - Table view data source
 
@@ -27,7 +48,7 @@ class LeaguesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return leagues.count
     }
 
     
@@ -35,9 +56,13 @@ class LeaguesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LeaguesTableViewCell
         cell.contentView.frame = cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 64, bottom: 0, right: 64))
         
-
-//        cell.leagueImage.image=sports[indexPath.row].image
-//        cell.leagueName.text=sports[indexPath.row].displayName
+        let league = leagues[indexPath.row]
+       cell.leagueName.text = league.league_name
+        if let logo = league.league_logo, let url = URL(string: logo) {
+            cell.leagueImage.kf.setImage(with: url)
+        } else {
+            cell.leagueImage.image = UIImage(named: "footballPlaceholder")
+        }
 
         
 
