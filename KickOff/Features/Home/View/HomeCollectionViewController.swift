@@ -1,6 +1,6 @@
 import UIKit
 
-private let reuseIdentifier = "Cell"
+
 
 
 class HomeCollectionViewController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
@@ -9,12 +9,15 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib=UINib(nibName: "HomeCollectionViewCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+       
 
         // Do any additional setup after loading the view.
     }
@@ -43,20 +46,53 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
+        
+        cell.sportsImage.image=sports[indexPath.row].image
     
-        let imageVeiw = cell.contentView.viewWithTag(1) as! UIImageView
-        imageVeiw.image = sports[indexPath.row].image
+//        let imageVeiw = cell.contentView.viewWithTag(1) as! UIImageView
+//        imageVeiw.image = sports[indexPath.row].image
     
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width * 0.48
-        let height = width * 1.2
-        return CGSize(width: width, height: height)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let spacing: CGFloat = 16
+        let itemsPerRow: CGFloat = 2
+        let totalSpacing = spacing * (itemsPerRow + 1)
+        let availableWidth = collectionView.bounds.width - totalSpacing
+        let itemWidth = floor(availableWidth / itemsPerRow)
+        let itemHeight = itemWidth * 1.3
+
+        return CGSize(width: itemWidth, height: itemHeight)
     }
     
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 64, left: 16, bottom: 16, right: 16)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+
+
+    
+    
+
+
 
 
     // MARK: UICollectionViewDelegate
