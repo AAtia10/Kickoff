@@ -45,8 +45,8 @@ class ViewController: UIViewController {
     }
     
     func navigateToHome(){
-        let storyboard = UIStoryboard(name: "LeagueDetails", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "leagueDetails")
+        let storyboard = UIStoryboard(name: "Leagues", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "Leagues")
         self.navigationController?.setViewControllers([homeVC], animated: true)
     }
     
