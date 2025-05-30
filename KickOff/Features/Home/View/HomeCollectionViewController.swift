@@ -50,8 +50,6 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
         
         cell.sportsImage.image=sports[indexPath.row].image
     
-//        let imageVeiw = cell.contentView.viewWithTag(1) as! UIImageView
-//        imageVeiw.image = sports[indexPath.row].image
     
         return cell
     }
