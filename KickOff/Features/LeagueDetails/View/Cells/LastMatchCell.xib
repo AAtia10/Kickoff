@@ -54,7 +54,6 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" systemColor="systemOrangeColor"/>
             <constraints>
                 <constraint firstItem="aKg-LM-mtx" firstAttribute="top" secondItem="8Vd-cP-Mvh" secondAttribute="top" id="A1t-kb-7Cf"/>
                 <constraint firstItem="8Vd-cP-Mvh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="HXM-ww-Vbc"/>
@@ -68,17 +67,20 @@
                 <constraint firstItem="O4B-sk-rX6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="wIU-fw-pAh"/>
             </constraints>
             <size key="customSize" width="325" height="144"/>
-            <point key="canvasLocation" x="387.02290076335879" y="3.5211267605633805"/>
+            <connections>
+                <outlet property="awayImageView" destination="O4B-sk-rX6" id="s9Q-6m-zXZ"/>
+                <outlet property="awayLabel" destination="aKg-LM-mtx" id="opW-gv-R1n"/>
+                <outlet property="homeImageView" destination="l7b-vz-Q7D" id="4FD-2e-APV"/>
+                <outlet property="homeLabel" destination="8Vd-cP-Mvh" id="N2V-eD-LmZ"/>
+            </connections>
+            <point key="canvasLocation" x="436" y="-123"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="soccerball" catalog="system" width="128" height="123"/>
         <image name="soccerball.inverse" catalog="system" width="128" height="123"/>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
