@@ -225,8 +225,8 @@
 		9DD7DA9E2DE9E9A1001C7900 /* Leagues */ = {
 			isa = PBXGroup;
 			children = (
+				BBA8E3062DEB282200B4CD45 /* Presenter */,
 				9DD7DAA32DE9EB79001C7900 /* View */,
-				9DD7DAA82DEA09A1001C7900 /* LeaguesPresenter.swift */,
 			);
 			path = Leagues;
 			sourceTree = "<group>";
@@ -258,6 +258,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		BBA8E3062DEB282200B4CD45 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9DD7DAA82DEA09A1001C7900 /* LeaguesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		BBBF5CA02DEA4E4F00E60FFC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +282,8 @@
 		BBC005D32DE9967300DE1FF3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BBA8E3022DEB16F600B4CD45 /* TeamsResponse.swift */,
+				BBA8E3042DEB171400B4CD45 /* Team.swift */,
 				BBC005DB2DE999EA00DE1FF3 /* LeagueResponse.swift */,
 				BBC005DD2DE99A1500DE1FF3 /* League.swift */,
 			);
@@ -363,8 +373,6 @@
 				BBA8E3012DEB124000B4CD45 /* Services */,
 				BBC005F12DE9E1A600DE1FF3 /* MatchesResponse.swift */,
 				BBA8E2EF2DEAD90E00B4CD45 /* Match.swift */,
-				BBA8E3022DEB16F600B4CD45 /* TeamsResponse.swift */,
-				BBA8E3042DEB171400B4CD45 /* Team.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

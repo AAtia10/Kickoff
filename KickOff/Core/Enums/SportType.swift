@@ -11,13 +11,13 @@ enum SportType: String, CaseIterable {
     var image: UIImage? {
         switch self {
         case .football:
-            return UIImage(named: "1")
+            return UIImage(named: "baggio")
         case .tennis:
-            return UIImage(named: "1")
+            return UIImage(named: "tennis")
         case .basketball:
-            return UIImage(named: "1")
+            return UIImage(named: "basketball")
         case .cricket:
-            return UIImage(named: "1")
+            return UIImage(named: "cricket")
         }
     }
 

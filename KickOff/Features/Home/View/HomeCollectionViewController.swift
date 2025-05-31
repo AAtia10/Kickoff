@@ -48,7 +48,8 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
         
-        cell.sportsImage.image=sports[indexPath.row].image
+        cell.sportsImage.image = sports[indexPath.row].image
+        cell.sportLabrl.text = sports[indexPath.row].displayName
     
     
         return cell
@@ -63,7 +64,7 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
         let totalSpacing = spacing * (itemsPerRow + 1)
         let availableWidth = collectionView.bounds.width - totalSpacing
         let itemWidth = floor(availableWidth / itemsPerRow)
-        let itemHeight = itemWidth * 1.3
+        let itemHeight = itemWidth * 1.4
 
         return CGSize(width: itemWidth, height: itemHeight)
     }
@@ -85,12 +86,17 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
-
-
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigateToLeagues(sport: sports[indexPath.item])
+    }
     
-
-
+    func navigateToLeagues(sport:SportType){
+        let storyboard = UIStoryboard(name: "Leagues", bundle: nil)
+        let lVC = storyboard.instantiateViewController(withIdentifier: "Leagues") as! LeaguesViewController
+        lVC.sportType = sport
+        self.navigationController?.pushViewController(lVC, animated: true)
+    }
 
 
     // MARK: UICollectionViewDelegate

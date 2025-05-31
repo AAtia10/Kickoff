@@ -11,9 +11,8 @@ protocol LeagueDetailsProtocol {
 
 class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsProtocol{
     
-    var sport : SportType = .football
-    var leagueId : Int = 3
-    var leagueName : String = "League Details"
+    var sport : SportType?
+    var league : League?
     
     var presenter : LeaugeDetailsPresenter?
     
@@ -24,16 +23,17 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = leagueName
+        self.title = league?.league_name
+        let leagueId = league?.league_key ?? 3
 
         let heartButton = UIBarButtonItem(image: UIImage(systemName: "heart"),style: .plain,target: self,action: #selector(onFavTapped))
         
         navigationItem.rightBarButtonItem = heartButton
         
         presenter = LeaugeDetailsPresenter(view: self)
-        presenter?.fetchLastMatches(sport: sport, leagueId: leagueId)
-        presenter?.fetchUpcomingMatches(sport: sport, leagueId: leagueId)
-        presenter?.fetchTeams(sport: sport, leagueId: leagueId)
+        presenter?.fetchLastMatches(sport: sport ?? .football, leagueId: leagueId)
+        presenter?.fetchUpcomingMatches(sport: sport ?? .football, leagueId: leagueId)
+        presenter?.fetchTeams(sport: sport ?? .football, leagueId: leagueId)
 
         collectionView.collectionViewLayout = createLayout()
         
@@ -97,8 +97,8 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
             
             let match = lastMatches[indexPath.item]
             
-            cell.homeLabel.text = match.event_home_team
-            cell.awayLabel.text = match.event_away_team
+            cell.homeLabel.text = match.event_home_team ?? match.event_first_player ?? ""
+            cell.awayLabel.text = match.event_away_team ?? match.event_second_player ?? ""
             
             if let results = FormatUtils.splitMatchResult(match.event_final_result){
                 cell.homeResultLabel.text = results[0]
@@ -107,12 +107,31 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
             
             cell.dateLabel.text = match.event_date
             
-            if let url = URL(string: match.home_team_logo ?? ""){
+            var logo1 = ""
+            var logo2 = ""
+            
+            
+            switch self.sport!{
+            case .football:
+                logo1 = match.home_team_logo ?? ""
+                logo2 = match.away_team_logo ?? ""
+            case .tennis:
+                logo1 = match.event_first_player_logo ?? ""
+                logo2 = match.event_second_player_logo ?? ""
+            case .basketball:
+                logo1 = match.event_home_team_logo ?? ""
+                logo2 = match.event_away_team_logo ?? ""
+            case .cricket:
+                logo1 = match.event_home_team_logo ?? ""
+                logo2 = match.event_away_team_logo ?? ""
+            }
+            
+            if let url = URL(string: logo1 ){
                 cell.homeImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
                 
             }
             
-            if let url = URL(string: match.away_team_logo ?? ""){
+            if let url = URL(string: logo2){
                 cell.awayImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
                 
             }

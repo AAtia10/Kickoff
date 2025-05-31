@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22129"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,9 +17,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="164" height="264"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-1E-48C">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tennis" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-1E-48C">
                         <rect key="frame" x="0.0" y="0.0" width="164" height="264"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BasketBall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEy-Ys-Y8z">
+                        <rect key="frame" x="0.0" y="238.66666666666666" width="164" height="25.333333333333343"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -26,16 +34,20 @@
                 <constraint firstAttribute="trailing" secondItem="3JA-1E-48C" secondAttribute="trailing" id="AoL-ih-QwH"/>
                 <constraint firstItem="3JA-1E-48C" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ilu-Z7-0ub"/>
                 <constraint firstItem="3JA-1E-48C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="STP-dx-3DS"/>
+                <constraint firstAttribute="trailing" secondItem="gEy-Ys-Y8z" secondAttribute="trailing" id="cB6-FK-aBg"/>
                 <constraint firstAttribute="bottom" secondItem="3JA-1E-48C" secondAttribute="bottom" id="fDX-Df-HLI"/>
+                <constraint firstItem="gEy-Ys-Y8z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gz6-o8-ZW3"/>
+                <constraint firstAttribute="bottom" secondItem="gEy-Ys-Y8z" secondAttribute="bottom" id="tL7-lw-paJ"/>
             </constraints>
             <size key="customSize" width="164" height="264"/>
             <connections>
+                <outlet property="sportLabrl" destination="gEy-Ys-Y8z" id="OGp-4f-3UF"/>
                 <outlet property="sportsImage" destination="3JA-1E-48C" id="Ojr-O8-imx"/>
             </connections>
             <point key="canvasLocation" x="32.061068702290072" y="23.943661971830988"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="1" width="900" height="900"/>
+        <image name="tennis" width="576" height="1062"/>
     </resources>
 </document>
