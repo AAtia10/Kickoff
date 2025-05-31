@@ -33,7 +33,6 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="DSn-kG-7Se" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0JR-Mv-2la"/>
                 <constraint firstItem="DSn-kG-7Se" firstAttribute="top" secondItem="Jn2-0R-V07" secondAttribute="bottom" constant="16" id="g38-gX-m6w"/>
@@ -42,6 +41,10 @@
                 <constraint firstItem="Jn2-0R-V07" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="xZA-DU-qtG"/>
             </constraints>
             <size key="customSize" width="139" height="129"/>
+            <connections>
+                <outlet property="teamImageView" destination="Jn2-0R-V07" id="BdV-8a-i08"/>
+                <outlet property="teamLabel" destination="DSn-kG-7Se" id="oSI-5S-e07"/>
+            </connections>
             <point key="canvasLocation" x="197.70992366412213" y="16.549295774647888"/>
         </collectionViewCell>
     </objects>

@@ -6,20 +6,34 @@ import Kingfisher
 protocol LeagueDetailsProtocol {
     func loadLastMatches(matches : [Match])
     func loadUpcomingMatches(matches : [Match])
-    func loadTeams()
+    func loadTeams(teams : [Team])
 }
 
 class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsProtocol{
     
+    var sport : SportType = .football
+    var leagueId : Int = 3
+    var leagueName : String = "League Details"
+    
     var presenter : LeaugeDetailsPresenter?
     
     var lastMatches : [Match] = []
+    var upcomingMatches : [Match] = []
+    var teams : [Team] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = leagueName
+
+        let heartButton = UIBarButtonItem(image: UIImage(systemName: "heart"),style: .plain,target: self,action: #selector(onFavTapped))
+        
+        navigationItem.rightBarButtonItem = heartButton
+        
         presenter = LeaugeDetailsPresenter(view: self)
-        presenter?.fetchLastMatches(sport: .football, leagueId: 3)
+        presenter?.fetchLastMatches(sport: sport, leagueId: leagueId)
+        presenter?.fetchUpcomingMatches(sport: sport, leagueId: leagueId)
+        presenter?.fetchTeams(sport: sport, leagueId: leagueId)
 
         collectionView.collectionViewLayout = createLayout()
         
@@ -29,6 +43,11 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         
         collectionView.register(UINib(nibName: "TeamCell", bundle: nil), forCellWithReuseIdentifier: "TeamCell")
     }
+    
+    @objc func onFavTapped() {
+        print("fav Tapped")
+    }
+
 
     func createLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, environment in
@@ -47,9 +66,9 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return 8
+        case 0: return upcomingMatches.count
         case 1: return lastMatches.count
-        default: return 8
+        default: return teams.count
         }
     }
 
@@ -58,6 +77,19 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastMatchCell", for: indexPath) as! LastMatchCell
+            
+            let match = upcomingMatches[indexPath.item]
+            
+            cell.homeLabel.text = match.event_home_team
+            cell.awayLabel.text = match.event_away_team
+            
+            if let url = URL(string: match.home_team_logo ?? ""){
+                cell.homeImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+            }
+            
+            if let url = URL(string: match.away_team_logo ?? ""){
+                cell.awayImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+            }
             
             return cell
         case 1:
@@ -87,6 +119,14 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamCell
+            
+            let team = teams[indexPath.item]
+            
+            cell.teamLabel.text = team.team_name
+            
+            if let url = URL(string: team.team_logo ?? ""){
+                cell.teamImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+            }
             return cell
         }
 
@@ -155,9 +195,13 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
     }
     
     func loadUpcomingMatches(matches: [Match]) {
+        upcomingMatches = matches
+        collectionView.reloadData()
     }
     
-    func loadTeams() {
+    func loadTeams(teams : [Team]) {
+        self.teams = teams
+        collectionView.reloadData()
     }
     
     

@@ -72,7 +72,6 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
             <constraints>
                 <constraint firstItem="sOt-kx-Ctw" firstAttribute="top" secondItem="bol-GS-HUq" secondAttribute="bottom" constant="16" id="039-KL-eQt"/>
                 <constraint firstAttribute="trailing" secondItem="sOt-kx-Ctw" secondAttribute="trailing" constant="8" id="3Kb-nT-FU0"/>
@@ -108,9 +107,6 @@
     </objects>
     <resources>
         <image name="soccerball" catalog="system" width="128" height="123"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
