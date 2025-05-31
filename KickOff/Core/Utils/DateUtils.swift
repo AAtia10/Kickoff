@@ -9,6 +9,11 @@ class DateUtils {
     static func dateToday() -> String {
         return formatted(Date())
     }
+    
+    static func dateYesterday() -> String {
+           let date = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+           return formatted(date)
+    }
 
     static func dateNextMonth() -> String {
         let date = Calendar.current.date(byAdding: .month, value: 1, to: Date())!

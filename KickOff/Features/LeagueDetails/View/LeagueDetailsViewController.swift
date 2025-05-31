@@ -1,11 +1,25 @@
 
 import UIKit
+import Kingfisher
 
 
-class LeagueDetailsViewController: UICollectionViewController {
+protocol LeagueDetailsProtocol {
+    func loadLastMatches(matches : [Match])
+    func loadUpcomingMatches(matches : [Match])
+    func loadTeams()
+}
+
+class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsProtocol{
+    
+    var presenter : LeaugeDetailsPresenter?
+    
+    var lastMatches : [Match] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter = LeaugeDetailsPresenter(view: self)
+        presenter?.fetchLastMatches(sport: .football, leagueId: 3)
 
         collectionView.collectionViewLayout = createLayout()
         
@@ -34,7 +48,7 @@ class LeagueDetailsViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0: return 8
-        case 1: return 5
+        case 1: return lastMatches.count
         default: return 8
         }
     }
@@ -48,6 +62,28 @@ class LeagueDetailsViewController: UICollectionViewController {
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpcomingMatchCell", for: indexPath) as! UpcomingMatchCell
+            
+            let match = lastMatches[indexPath.item]
+            
+            cell.homeLabel.text = match.event_home_team
+            cell.awayLabel.text = match.event_away_team
+            
+            if let results = FormatUtils.splitMatchResult(match.event_final_result){
+                cell.homeResultLabel.text = results[0]
+                cell.awayResultLabel.text = results[1]
+            }
+            
+            cell.dateLabel.text = match.event_date
+            
+            if let url = URL(string: match.home_team_logo ?? ""){
+                cell.homeImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+                
+            }
+            
+            if let url = URL(string: match.away_team_logo ?? ""){
+                cell.awayImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+                
+            }
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamCell
@@ -96,22 +132,35 @@ class LeagueDetailsViewController: UICollectionViewController {
     }
     
     func createUpcomingMatchesSection()->NSCollectionLayoutSection {
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
-            , heightDimension: .fractionalHeight(1))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
-            , heightDimension: .absolute(110))
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize
-            , subitems: [item])
-            group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8
-            , bottom: 8, trailing: 8)
-            
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
-            , bottom: 0, trailing: 0)
-            return section
-        }
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
+                                              , heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
+                                               , heightDimension: .absolute(120))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize
+                                                     , subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8
+                                                      , bottom: 8, trailing: 8)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
+                                                        , bottom: 0, trailing: 0)
+        return section
+    }
+    
+    func loadLastMatches(matches: [Match]) {
+        lastMatches = matches
+        collectionView.reloadData()
+    }
+    
+    func loadUpcomingMatches(matches: [Match]) {
+    }
+    
+    func loadTeams() {
+    }
+    
+    
 
     // MARK: UICollectionViewDelegate
 
