@@ -81,16 +81,16 @@ class LeagueDetailsViewController: UICollectionViewController {
                                               , heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(100)
-                                               , heightDimension: .absolute(100))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4)
+                                               , heightDimension: .absolute(130))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize
                                                      , subitems: [item])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
-                                                      , bottom: 0, trailing: 15)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8
+                                                      , bottom: 8, trailing: 8)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 15
-                                                        , bottom: 10, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
+                                                        , bottom: 0, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         return section
     }
@@ -104,8 +104,8 @@ class LeagueDetailsViewController: UICollectionViewController {
             , heightDimension: .absolute(110))
             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize
             , subitems: [item])
-            group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
-            , bottom: 8, trailing: 0)
+            group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8
+            , bottom: 8, trailing: 8)
             
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
