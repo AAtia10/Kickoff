@@ -40,7 +40,7 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
         
         collectionView.register(UINib(nibName: "LastMatchCell", bundle: nil), forCellWithReuseIdentifier: "LastMatchCell")
         
-        collectionView.register(UINib(nibName: "UpcomingMatchCell", bundle: nil), forCellWithReuseIdentifier: "UpcomingMatchCell")
+        collectionView.register(UINib(nibName: "TennisGameCell", bundle: nil), forCellWithReuseIdentifier: "TennisGameCell")
         
         collectionView.register(UINib(nibName: "TeamCell", bundle: nil), forCellWithReuseIdentifier: "TeamCell")
     }
@@ -104,7 +104,7 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
-                                               , heightDimension: .absolute(120))
+                                               , heightDimension: .absolute(180))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize
                                                      , subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8
@@ -159,17 +159,44 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
             }
             return cell
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpcomingMatchCell", for: indexPath) as! UpcomingMatchCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TennisGameCell", for: indexPath) as! TennisGameCell
             
             let match = lastMatches[indexPath.item]
             
-            cell.homeLabel.text = match.eventFirstPlayer
-            cell.awayLabel.text = match.eventSecondPlayer
+            cell.fNameLabel.text = match.eventFirstPlayer
+            cell.sNameLabel.text = match.eventSecondPlayer
             
-            if let results = FormatUtils.splitMatchResult(match.eventFinalResult){
-                cell.homeResultLabel.text = results[0]
-                cell.awayResultLabel.text = results[1]
+            let labels1 = [cell.l11,cell.l21,cell.l31,cell.l41,cell.l51]
+            let labels2 = [cell.l12,cell.l22,cell.l32,cell.l42,cell.l52]
+            
+            print(match.scores ?? "no data")
+                        
+            var i = 0
+            for s in match.scores! {
+                labels1[i]?.text = s.scoreFirst.components(separatedBy: ".").first ?? "-"
+                labels2[i]?.text = s.scoreSecond.components(separatedBy: ".").first ?? "-"
+                i += 1
             }
+            let darkGreen = UIColor(red: 0/255, green: 100/255, blue: 0/255, alpha: 1)
+            
+            if let results = FormatUtils.splitMatchResult(match.eventFinalResult),
+               results.count == 2 {
+                
+                let score1 = Int(results[0]) ?? 0
+                let score2 = Int(results[1]) ?? 0
+
+                cell.result1.text = results[0]
+                cell.result2.text = results[1]
+
+                if score1 < score2 {
+                    cell.result1.textColor = .systemRed
+                    cell.result2.textColor = UIColor.systemGreen
+                } else{
+                    cell.result1.textColor = UIColor.systemGreen
+                    cell.result2.textColor = .systemRed
+                }
+            }
+
             
             cell.dateLabel.text = match.eventDate
             
@@ -178,12 +205,12 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
             
 
             if let url = URL(string: logo1 ){
-                cell.homeImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+                cell.fImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
                 
             }
             
             if let url = URL(string: logo2){
-                cell.awayImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+                cell.sImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
                 
             }
             return cell
