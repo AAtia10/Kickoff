@@ -45,11 +45,12 @@ class ViewController: UIViewController {
     }
     
     func navigateToHome(){
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as? UITabBarController {
+        let storyboard = UIStoryboard(name: "TeamDetails", bundle: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "teamDetails") as? TeamDetailsViewController {
             self.navigationController?.setViewControllers([tabBarController], animated: true)
         }
     }
+    
     
     
 
