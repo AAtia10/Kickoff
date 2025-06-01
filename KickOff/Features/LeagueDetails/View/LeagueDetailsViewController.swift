@@ -23,6 +23,8 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("hello Test")
+        
         self.title = league?.league_name
         let leagueId = league?.league_key ?? 3
 
