@@ -5,6 +5,7 @@ enum Endpoint {
     case fixtures(sport: SportType, leagueId: Int, from: String, to: String)
     case teams(sport: SportType, leagueId: Int)
     case tennisPlayers(sport: SportType = .tennis ,leagueId: Int)
+    case teamDetails(sport: SportType, teamId: Int)
     
     
     private var baseURL: String {
@@ -19,7 +20,7 @@ enum Endpoint {
     
     var url: String {
         switch self {
-        case .leagues(let sport), .fixtures(let sport, _, _, _) , .teams(let sport,_) , .tennisPlayers(let sport , _):
+        case .leagues(let sport), .fixtures(let sport, _, _, _) , .teams(let sport,_) , .tennisPlayers(let sport , _, .teamDetails(let sport, _)):
             return "\(baseURL)\(sport.rawValue)"
         }
     }
@@ -51,6 +52,12 @@ enum Endpoint {
                     "APIkey": apiKey,
                     "leagueId": leagueId
                 ]
+            case .teamDetails(_, let teamId):
+                       return [
+                           "met": "Teams",
+                           "APIkey": apiKey,
+                           "teamId": teamId
+                       ]
             }
         }
 }
