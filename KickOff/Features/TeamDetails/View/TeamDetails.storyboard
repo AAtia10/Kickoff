@@ -16,13 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="d4M-EP-kME">
-                                <rect key="frame" x="16" y="75" width="116" height="139"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="d4M-EP-kME">
+                                <rect key="frame" x="16" y="76.666666666666657" width="100" height="97"/>
+                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="rCS-th-xEX"/>
+                                    <constraint firstAttribute="width" constant="100" id="rqG-G3-5T1"/>
+                                </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X2p-2g-k4f">
-                                <rect key="frame" x="0.0" y="231" width="393" height="621"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X2p-2g-k4f">
+                                <rect key="frame" x="0.0" y="191" width="393" height="661"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="01o-J1-YLu">
@@ -35,16 +38,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFT-OH-ymI">
-                                <rect key="frame" x="158" y="134" width="191" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFT-OH-ymI">
+                                <rect key="frame" x="132" y="125" width="245" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d4M-EP-kME" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="3pO-Wl-aaj"/>
+                            <constraint firstItem="X2p-2g-k4f" firstAttribute="top" secondItem="d4M-EP-kME" secondAttribute="bottom" constant="16" id="CHa-Sl-phF"/>
+                            <constraint firstItem="DFT-OH-ymI" firstAttribute="centerY" secondItem="d4M-EP-kME" secondAttribute="centerY" id="WOu-9Y-MK8"/>
+                            <constraint firstAttribute="bottom" secondItem="X2p-2g-k4f" secondAttribute="bottom" id="WPH-SF-lPd"/>
+                            <constraint firstItem="DFT-OH-ymI" firstAttribute="leading" secondItem="d4M-EP-kME" secondAttribute="trailing" constant="16" id="WYg-q6-oCg"/>
+                            <constraint firstItem="d4M-EP-kME" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="hxw-cN-eqa"/>
+                            <constraint firstItem="X2p-2g-k4f" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="mFu-Gz-EB8"/>
+                            <constraint firstItem="X2p-2g-k4f" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="vwX-7X-zyA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DFT-OH-ymI" secondAttribute="trailing" constant="16" id="wAz-m5-okz"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="teamImage" destination="d4M-EP-kME" id="EwM-bE-68M"/>
@@ -58,7 +71,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="900" height="900"/>
+        <image name="photo.artframe" catalog="system" width="128" height="93"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -30,6 +30,7 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
         
         teamTable.delegate = self
         teamTable.dataSource = self
+        teamTable.rowHeight = 100
         
         presenter = TeamDetailsPresenter(view: self)
                 presenter?.fetchTeamDetails(sport: .football, teamId: 102)
@@ -71,7 +72,9 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
                     self.sectionTitles = ["Coach"]
                 }
                 
-                self.sectionTitles += self.playerSections.keys.sorted()
+                let order = ["Goalkeepers", "Defenders", "Midfielders", "Forwards", "Others"]
+                self.sectionTitles += order.filter { self.playerSections[$0] != nil }
+
                 self.teamTable.reloadData()
             }
         }
@@ -108,9 +111,9 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
                     cell.playerName.text = player.player_name
                     cell.playerNumber.text = player.player_number
                     if let imageUrl = player.player_image, let url = URL(string: imageUrl) {
-                        cell.playerImage.kf.setImage(with: url)
+                        cell.playerImage.kf.setImage(with: url,placeholder: UIImage(named: "playerplaceholder"))
                     } else {
-                        cell.playerImage.image = UIImage(named: "placeholder")
+                        cell.playerImage.image = UIImage(named: "playerplaceholder")
                     }
                 }
             }
