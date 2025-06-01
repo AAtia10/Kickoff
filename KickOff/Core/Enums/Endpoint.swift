@@ -20,7 +20,7 @@ enum Endpoint {
     
     var url: String {
         switch self {
-        case .leagues(let sport), .fixtures(let sport, _, _, _) , .teams(let sport,_) , .tennisPlayers(let sport , _, .teamDetails(let sport, _)):
+        case .leagues(let sport), .fixtures(let sport, _, _, _) , .teams(let sport,_) , .tennisPlayers(let sport , _), .teamDetails(let sport, _):
             return "\(baseURL)\(sport.rawValue)"
         }
     }
