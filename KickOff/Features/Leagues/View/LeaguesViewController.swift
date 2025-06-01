@@ -102,13 +102,25 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigateToLeagueDetails(leauge: leagues[indexPath.row])
+        switch sportType {
+        case .tennis:
+            navigateToTennisLeagueDetails(leauge: leagues[indexPath.row])
+        default:
+            navigateToLeagueDetails(leauge: leagues[indexPath.row])
+        }
     }
     
     func navigateToLeagueDetails(leauge : League){
         let storyboard = UIStoryboard(name: "LeagueDetails", bundle: nil)
         let lVC = storyboard.instantiateViewController(withIdentifier: "leagueDetails") as! LeagueDetailsViewController
         lVC.sport = self.sportType
+        lVC.league = leauge
+        self.navigationController?.pushViewController(lVC, animated: true)
+    }
+    
+    func navigateToTennisLeagueDetails(leauge : League){
+        let storyboard = UIStoryboard(name: "TennisDetails", bundle: nil)
+        let lVC = storyboard.instantiateViewController(withIdentifier: "TennisDetails") as! TennisLeagueViewController
         lVC.league = leauge
         self.navigationController?.pushViewController(lVC, animated: true)
     }

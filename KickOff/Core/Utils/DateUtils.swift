@@ -3,7 +3,7 @@ import Foundation
 class DateUtils {
     
     static func dateTwentyYearsAgo() -> String {
-        let date = Calendar.current.date(byAdding: .year, value: -10, to: Date())!
+        let date = Calendar.current.date(byAdding: .year, value: -20, to: Date())!
         return formatted(date)
     }
     static func dateTwoMonthsAgo() -> String {
