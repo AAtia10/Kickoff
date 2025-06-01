@@ -33,7 +33,11 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
         teamTable.rowHeight = 100
         
         presenter = TeamDetailsPresenter(view: self)
-                presenter?.fetchTeamDetails(sport: .football, teamId: 102)
+        
+        if let id = team?.team_key {
+            presenter?.fetchTeamDetails(sport: .football, teamId: id)
+        }
+        
         
         let nib=UINib(nibName: "PlayerDetailsCell", bundle: nil)
         teamTable.register(nib, forCellReuseIdentifier: "cell")

@@ -223,6 +223,22 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         collectionView.reloadData()
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if(indexPath.section == 2 && sport == .football){
+            let team = teams[indexPath.item]
+            navigateToTeamDetails(team: team)
+        }
+        
+    }
+    
+    func navigateToTeamDetails(team : Team){
+        let teamsStoryboard = UIStoryboard(name: "TeamDetails", bundle: nil)
+        let tVC = teamsStoryboard.instantiateViewController(withIdentifier: "teamDetails") as! TeamDetailsViewController
+        tVC.team = team
+        navigationController?.pushViewController(tVC, animated: true)
+    }
+    
     
 
     // MARK: UICollectionViewDelegate
