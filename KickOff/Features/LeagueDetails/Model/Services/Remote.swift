@@ -7,7 +7,7 @@ extension RemoteDataSource {
         leagueId: Int,
         completion: @escaping (Result<[Match], Error>) -> Void
     ) {
-        let fromDate = DateUtils.dateTwoMonthsAgo()
+        let fromDate = DateUtils.dateTwentyYearsAgo()
         let toDate = DateUtils.dateYesterday()
 
         requestFixtures(sport: sport, leagueId: leagueId, from: fromDate, to: toDate, completion: completion)
