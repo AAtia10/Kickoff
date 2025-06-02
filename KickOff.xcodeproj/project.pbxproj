@@ -20,6 +20,7 @@
 		9D85D3D02DEDB370003C5940 /* KickOffCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3CE2DEDB370003C5940 /* KickOffCoreData.xcdatamodeld */; };
 		9D85D3D22DEDB460003C5940 /* LocalLeague.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D12DEDB460003C5940 /* LocalLeague.swift */; };
 		9D85D3D42DEDC91A003C5940 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D32DEDC91A003C5940 /* FavViewController.swift */; };
+		9D85D3D62DEDD8FD003C5940 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */; };
 		9DD4C3822DE8AD640061BB3E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4C3812DE8AD640061BB3E /* TestViewController.swift */; };
 		9DD7DA9C2DE9CC7A001C7900 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7DA9A2DE9CC7A001C7900 /* HomeCollectionViewCell.swift */; };
 		9DD7DA9D2DE9CC7A001C7900 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DD7DA9B2DE9CC7A001C7900 /* HomeCollectionViewCell.xib */; };
@@ -110,6 +111,7 @@
 		9D85D3CF2DEDB370003C5940 /* KickOffCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KickOffCoreData.xcdatamodel; sourceTree = "<group>"; };
 		9D85D3D12DEDB460003C5940 /* LocalLeague.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLeague.swift; sourceTree = "<group>"; };
 		9D85D3D32DEDC91A003C5940 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
+		9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		9DD4C3812DE8AD640061BB3E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9DD7DA9A2DE9CC7A001C7900 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DD7DA9B2DE9CC7A001C7900 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 			children = (
 				BBA8E2F32DEAD95600B4CD45 /* DateUtils.swift */,
 				BBA8E2F52DEAE64C00B4CD45 /* FormatUtils.swift */,
+				9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				BB6D2DAD2DEC218C00BB282E /* TennisDetailsPresenter.swift in Sources */,
 				BBBF5CAB2DEA4ED600E60FFC /* TeamCell.swift in Sources */,
 				BBC005E02DE9B44000DE1FF3 /* Endpoint.swift in Sources */,
+				9D85D3D62DEDD8FD003C5940 /* AlertManager.swift in Sources */,
 				BBA8E2EA2DEAD67E00B4CD45 /* LeaugeDetailsPresenter.swift in Sources */,
 				BBC005E72DE9BA7600DE1FF3 /* HomeCollectionViewController.swift in Sources */,
 				9D85D3D42DEDC91A003C5940 /* FavViewController.swift in Sources */,

@@ -19,12 +19,15 @@ class FavViewController: UITableViewController {
         let nib=UINib(nibName: "LeaguesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
 
-        loadFavoriteLeagues()
+        
     }
     
     func loadFavoriteLeagues() {
         favoriteLeagues = LocalDataSource.instance.getFavLeagues()
         tableView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        loadFavoriteLeagues()
     }
 
 
@@ -78,17 +81,28 @@ class FavViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let league = favoriteLeagues[indexPath.row]
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            AlertManager.showDeleteAlert(
+                on: self,
+                title: "Confirm",
+                message: "Are you sure you want to remove this from favorites?"
+            ) {
+                LocalDataSource.instance.removeLeague(byKey:league.league_key)
+                self.favoriteLeagues.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            // Handle insert if needed
+        }
     }
-    */
+    
+    
+
+    
 
     /*
     // Override to support rearranging the table view.
