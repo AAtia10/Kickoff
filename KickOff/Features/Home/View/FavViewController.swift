@@ -63,7 +63,7 @@ class FavViewController: UITableViewController,FavViewProtocol {
         let league = favoriteLeagues[indexPath.row]
        let placeholerImage = UIImage(systemName: "soccerball")
         cell.leagueName.text = league.league_name
-        if let url = URL(string: league.league_logo) {
+        if let url = URL(string: league.league_logo ?? "") {
             cell.leagueImage.kf.setImage(with: url , placeholder: placeholerImage)
         } else {
             cell.leagueImage.image = placeholerImage
