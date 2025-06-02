@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22129"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -46,20 +44,33 @@
             <point key="canvasLocation" x="882" y="-113"/>
         </scene>
         <!--Favourites-->
-        <scene sceneID="TRE-j3-ABu">
+        <scene sceneID="v8F-Va-79w">
             <objects>
-                <viewController id="2V7-s2-0YK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nUy-xK-tZR">
+                <tableViewController storyboardIdentifier="Favourite" id="CsS-OT-7SY" customClass="FavViewController" customModule="KickOff" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="CM9-HS-2j7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="blv-gG-MxN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favourites" image="star.fill" catalog="system" id="fsK-71-5jV"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zwB-Vt-UqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sry-lE-zJT">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sry-lE-zJT" id="zxK-Cg-aQU">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CsS-OT-7SY" id="gUl-fy-obT"/>
+                            <outlet property="delegate" destination="CsS-OT-7SY" id="1Qw-7F-syH"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="star.fill" catalog="system" id="fC7-HZ-2ub"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jT7-Pf-LOp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="905" y="596"/>
+            <point key="canvasLocation" x="934" y="570"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nFf-ET-9zJ">
@@ -67,12 +78,13 @@
                 <tabBarController storyboardIdentifier="HomeTabBar" automaticallyAdjustsScrollViewInsets="NO" id="eKL-7k-T8q" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vxs-xh-s4M">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="e30-Kp-c2d" kind="relationship" relationship="viewControllers" id="IB5-jP-ApP"/>
-                        <segue destination="2V7-s2-0YK" kind="relationship" relationship="viewControllers" id="MCM-dG-trA"/>
+                        <segue destination="CsS-OT-7SY" kind="relationship" relationship="viewControllers" id="9Cj-JX-bMc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYE-aS-DTF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

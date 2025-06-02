@@ -13,6 +13,7 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
     
     var sport : SportType?
     var league : League?
+    var isFav=false
     
     var presenter : LeaugeDetailsPresenter?
     
@@ -25,6 +26,8 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         
         self.title = league?.league_name
         let leagueId = league?.league_key ?? 3
+        
+        isFav = LocalDataSource.instance.isFav(key: leagueId)
 
         let heartButton = UIBarButtonItem(image: UIImage(systemName: "heart"),style: .plain,target: self,action: #selector(onFavTapped))
         
@@ -45,7 +48,20 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
     }
     
     @objc func onFavTapped() {
-        print("fav Tapped")
+        guard let league = league else { return }
+           let leagueId = league.league_key
+
+           if isFav {
+               
+               LocalDataSource.instance.removeLeague(byKey: leagueId)
+               isFav = false
+               navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+           } else {
+               let localLeague = LocalLeague(fromLeague: league, sport: sport ?? .football)
+               LocalDataSource.instance.addLeague(localLeague)
+               isFav = true
+               navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+           }
     }
 
 

@@ -2,7 +2,7 @@ import Foundation
 
 import UIKit
 
-enum SportType: String, CaseIterable {
+enum SportType: String, CaseIterable,Decodable {
     case football
     case tennis
     case basketball
