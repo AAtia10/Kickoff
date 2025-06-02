@@ -96,7 +96,7 @@ class CircketLeagueViewController: UICollectionViewController , CricketLeagueDet
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4)
-                                               , heightDimension: .absolute(130))
+                                               , heightDimension: .absolute(150))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize
                                                      , subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8
