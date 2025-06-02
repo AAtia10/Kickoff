@@ -225,7 +225,7 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
                 cell.teamImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
                 
             }
-            
+            cell.container.backgroundColor = .white
             return cell
         }
     }

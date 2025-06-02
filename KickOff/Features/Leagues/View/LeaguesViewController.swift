@@ -68,10 +68,13 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
             placeholerImage = UIImage(systemName: "soccerball")
         case .tennis:
             placeholerImage = UIImage(systemName: "tennisball.fill")
+            cell.leagueImage.tintColor = .systemGreen
         case .basketball:
             placeholerImage = UIImage(systemName: "basketball.fill")
+            cell.leagueImage.tintColor = .systemOrange
         case .cricket:
             placeholerImage = UIImage(systemName: "cricket.ball.fill")
+            cell.leagueImage.tintColor = .systemRed
         case nil:
             placeholerImage = UIImage(named: "leaguePlaceholder")
         }

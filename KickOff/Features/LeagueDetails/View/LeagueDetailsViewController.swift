@@ -162,6 +162,14 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
             if let url = URL(string: team.team_logo ?? ""){
                 cell.teamImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
             }
+            
+            switch sport {
+            case .football:
+                cell.setupCardStyle()
+            default:
+                cell.container.backgroundColor = .white
+                
+            }
             return cell
         }
 
@@ -193,7 +201,7 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4)
-                                               , heightDimension: .absolute(130))
+                                               , heightDimension: .absolute(150))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize
                                                      , subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8

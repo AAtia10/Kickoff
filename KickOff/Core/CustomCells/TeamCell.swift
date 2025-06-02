@@ -14,10 +14,10 @@ class TeamCell: UICollectionViewCell {
     @IBOutlet weak var teamImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupCardStyle()
+        
     }
     
-    private func setupCardStyle() {
+    func setupCardStyle() {
         container.layer.cornerRadius = 12
         container.layer.borderWidth = 1
         container.layer.borderColor = UIColor.systemGray4.cgColor

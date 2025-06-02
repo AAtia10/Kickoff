@@ -61,7 +61,24 @@ class FavViewController: UITableViewController,FavViewProtocol {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! LeaguesTableViewCell
 
         let league = favoriteLeagues[indexPath.row]
-       let placeholerImage = UIImage(systemName: "soccerball")
+        
+        var placeholerImage : UIImage!
+        
+        
+        switch league.sport {
+        case .football:
+            placeholerImage = UIImage(systemName: "soccerball")
+        case .tennis:
+            placeholerImage = UIImage(systemName: "tennisball.fill")
+            cell.leagueImage.tintColor = .systemGreen
+        case .basketball:
+            placeholerImage = UIImage(systemName: "basketball.fill")
+            cell.leagueImage.tintColor = .systemOrange
+        case .cricket:
+            placeholerImage = UIImage(systemName: "cricket.ball.fill")
+            cell.leagueImage.tintColor = .systemRed
+        }
+        
         cell.leagueName.text = league.league_name
         if let url = URL(string: league.league_logo ?? "") {
             cell.leagueImage.kf.setImage(with: url , placeholder: placeholerImage)
@@ -111,33 +128,41 @@ class FavViewController: UITableViewController,FavViewProtocol {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let league = favoriteLeagues[indexPath.row]
+        
+        switch league.sport{
+        case .tennis:
+            navigateToTennisLeagueDetails(leauge: league)
+        case .cricket:
+            navigateToCricketLeagueDetails(leauge: league)
+        default:
+            navigateToLeagueDetails(leauge: league)
+        }
+    }
     
-
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    func navigateToLeagueDetails(leauge : LocalLeague){
+        let storyboard = UIStoryboard(name: "LeagueDetails", bundle: nil)
+        let lVC = storyboard.instantiateViewController(withIdentifier: "leagueDetails") as! LeagueDetailsViewController
+        lVC.sport = leauge.sport
+        lVC.league = League(league_key: leauge.league_key, league_name: leauge.league_name, league_logo: leauge.league_logo)
+        self.navigationController?.pushViewController(lVC, animated: true)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func navigateToTennisLeagueDetails(leauge : LocalLeague){
+        let storyboard = UIStoryboard(name: "TennisDetails", bundle: nil)
+        let lVC = storyboard.instantiateViewController(withIdentifier: "TennisDetails") as! TennisLeagueViewController
+        lVC.league = League(league_key: leauge.league_key, league_name: leauge.league_name, league_logo: leauge.league_logo)
+        self.navigationController?.pushViewController(lVC, animated: true)
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func navigateToCricketLeagueDetails(leauge : LocalLeague){
+        let storyboard = UIStoryboard(name: "CricketDetails", bundle: nil)
+        let lVC = storyboard.instantiateViewController(withIdentifier: "CricketDetails") as! CircketLeagueViewController
+        lVC.league = League(league_key: leauge.league_key, league_name: leauge.league_name, league_logo: leauge.league_logo)
+        self.navigationController?.pushViewController(lVC, animated: true)
     }
-    */
 
 }

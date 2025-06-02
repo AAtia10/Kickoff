@@ -201,6 +201,7 @@ class CircketLeagueViewController: UICollectionViewController , CricketLeagueDet
             if let url = URL(string: team.team_logo ?? ""){
                 cell.teamImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
             }
+            cell.container.backgroundColor = .white
             
             return cell
         }

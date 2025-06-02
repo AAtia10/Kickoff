@@ -516,7 +516,6 @@
 		BBC005E22DE9B70C00DE1FF3 /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				9D85D3CD2DEDB15F003C5940 /* Model */,
 				BBC005E32DE9B72100DE1FF3 /* LocalDataSource.swift */,
 			);
 			path = Local;
@@ -529,7 +528,6 @@
 				BBC005E62DE9BA7600DE1FF3 /* HomeCollectionViewController.swift */,
 				9DD7DA9A2DE9CC7A001C7900 /* HomeCollectionViewCell.swift */,
 				9DD7DA9B2DE9CC7A001C7900 /* HomeCollectionViewCell.xib */,
-				9D85D3D32DEDC91A003C5940 /* FavViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -594,6 +592,7 @@
 		BBC2D2D02DE89BFD002278F1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				BBF55F0F2DEDEE5D001996E5 /* FavouriteLeagues */,
 				BB04FBCB2DECF9A000D171C1 /* CricketLeagueDetails */,
 				BB6D2E3C2DECA3AA00BB282E /* TeamDetails */,
 				BB6D2D9F2DEC1A1400BB282E /* TennisLeagueDetails */,
@@ -653,10 +652,27 @@
 		BBC2D2DC2DE8AA62002278F1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				9D85D3D72DEDE145003C5940 /* presenter */,
 				BBC005E52DE9BA1300DE1FF3 /* View */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		BBF55F0F2DEDEE5D001996E5 /* FavouriteLeagues */ = {
+			isa = PBXGroup;
+			children = (
+				9D85D3D72DEDE145003C5940 /* presenter */,
+				BBF55F112DEDEE8E001996E5 /* View */,
+				9D85D3CD2DEDB15F003C5940 /* Model */,
+			);
+			path = FavouriteLeagues;
+			sourceTree = "<group>";
+		};
+		BBF55F112DEDEE8E001996E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D85D3D32DEDC91A003C5940 /* FavViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
