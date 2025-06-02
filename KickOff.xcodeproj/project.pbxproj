@@ -21,6 +21,7 @@
 		9D85D3D22DEDB460003C5940 /* LocalLeague.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D12DEDB460003C5940 /* LocalLeague.swift */; };
 		9D85D3D42DEDC91A003C5940 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D32DEDC91A003C5940 /* FavViewController.swift */; };
 		9D85D3D62DEDD8FD003C5940 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */; };
+		9D85D3D92DEDE16C003C5940 /* FavPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D82DEDE16C003C5940 /* FavPresenter.swift */; };
 		9DD4C3822DE8AD640061BB3E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4C3812DE8AD640061BB3E /* TestViewController.swift */; };
 		9DD7DA9C2DE9CC7A001C7900 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7DA9A2DE9CC7A001C7900 /* HomeCollectionViewCell.swift */; };
 		9DD7DA9D2DE9CC7A001C7900 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DD7DA9B2DE9CC7A001C7900 /* HomeCollectionViewCell.xib */; };
@@ -112,6 +113,7 @@
 		9D85D3D12DEDB460003C5940 /* LocalLeague.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLeague.swift; sourceTree = "<group>"; };
 		9D85D3D32DEDC91A003C5940 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		9D85D3D82DEDE16C003C5940 /* FavPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavPresenter.swift; sourceTree = "<group>"; };
 		9DD4C3812DE8AD640061BB3E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9DD7DA9A2DE9CC7A001C7900 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DD7DA9B2DE9CC7A001C7900 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -262,6 +264,14 @@
 				9D85D3D12DEDB460003C5940 /* LocalLeague.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9D85D3D72DEDE145003C5940 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9D85D3D82DEDE16C003C5940 /* FavPresenter.swift */,
+			);
+			path = presenter;
 			sourceTree = "<group>";
 		};
 		9DB35F2649016324CE3A3C01 /* Frameworks */ = {
@@ -604,6 +614,7 @@
 		BBC2D2DC2DE8AA62002278F1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9D85D3D72DEDE145003C5940 /* presenter */,
 				BBC005E52DE9BA1300DE1FF3 /* View */,
 			);
 			path = Home;
@@ -836,6 +847,7 @@
 				BBBF5CA32DEA4E7B00E60FFC /* LastMatchCell.swift in Sources */,
 				9DD7DAA62DE9ECCC001C7900 /* LeaguesTableViewCell.swift in Sources */,
 				BBBF5CA72DEA4EA100E60FFC /* UpcomingMatchCell.swift in Sources */,
+				9D85D3D92DEDE16C003C5940 /* FavPresenter.swift in Sources */,
 				BBC005ED2DE9CBBD00DE1FF3 /* LeagueDetailsViewController.swift in Sources */,
 				BBC2D2F12DE8D7BA002278F1 /* OnBoardingViewController.swift in Sources */,
 				BB6D2E4B2DECA3AA00BB282E /* RemoteData.swift in Sources */,

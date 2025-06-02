@@ -8,27 +8,40 @@
 import UIKit
 import Kingfisher
 
-class FavViewController: UITableViewController {
+protocol FavViewProtocol {
+    func showFavoriteLeagues(_ leagues: [LocalLeague])
+}
+
+class FavViewController: UITableViewController,FavViewProtocol {
+   
     
     var favoriteLeagues: [LocalLeague] = []
+    var presenter:FavPresenter?
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        presenter=FavPresenter(view:self)
+    
         let nib=UINib(nibName: "LeaguesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
-
+        
+        
         
     }
     
-    func loadFavoriteLeagues() {
-        favoriteLeagues = LocalDataSource.instance.getFavLeagues()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presenter?.fetchFav()
+    }
+    
+    
+    func showFavoriteLeagues(_ leagues: [LocalLeague]) {
+        favoriteLeagues=leagues
         tableView.reloadData()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        loadFavoriteLeagues()
-    }
+    
+
 
 
     // MARK: - Table view data source
@@ -91,9 +104,7 @@ class FavViewController: UITableViewController {
                 title: "Confirm",
                 message: "Are you sure you want to remove this from favorites?"
             ) {
-                LocalDataSource.instance.removeLeague(byKey:league.league_key)
-                self.favoriteLeagues.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.presenter?.removeLeague(id: league.league_key)
             }
         } else if editingStyle == .insert {
             // Handle insert if needed

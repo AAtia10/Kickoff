@@ -69,7 +69,7 @@ class LocalDataSource{
     }
     
     
-    func removeLeague(byKey key: Int) {
+    func removeLeague(byKey key: Int,completion:()->()) {
            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavLeague")
            fetchRequest.predicate = NSPredicate(format: "league_key == %d", key)
            
@@ -81,6 +81,7 @@ class LocalDataSource{
                    }
                }
                try context.save()
+               completion()
            } catch {
                print("Failed to remove league: \(error.localizedDescription)")
            }

@@ -53,7 +53,7 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
 
            if isFav {
                
-               LocalDataSource.instance.removeLeague(byKey: leagueId)
+               LocalDataSource.instance.removeLeague(byKey: leagueId){}
                isFav = false
                navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
            } else {
