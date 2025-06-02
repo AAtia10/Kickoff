@@ -6,6 +6,12 @@ class DateUtils {
         let date = Calendar.current.date(byAdding: .year, value: -20, to: Date())!
         return formatted(date)
     }
+    
+    static func dateFiveYearsAgo() -> String {
+        let date = Calendar.current.date(byAdding: .year, value: -5, to: Date())!
+        return formatted(date)
+    }
+    
     static func dateTwoMonthsAgo() -> String {
         let date = Calendar.current.date(byAdding: .month, value: -2, to: Date())!
         return formatted(date)

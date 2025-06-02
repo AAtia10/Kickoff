@@ -9,7 +9,11 @@ class LeaugeDetailsPresenter{
     }
     
     func fetchLastMatches(sport:SportType , leagueId:Int){
-        RemoteDataSource.shared.getLastMatches(sport: sport, leagueId: leagueId){
+        
+        let fromDate = DateUtils.dateTwoMonthsAgo()
+        let toDate = DateUtils.dateYesterday()
+        
+        RemoteDataSource.shared.requestFixtures(sport: sport, leagueId: leagueId, from: fromDate, to: toDate){
             result in
             
             switch result {
@@ -21,7 +25,10 @@ class LeaugeDetailsPresenter{
         }
     }
     func fetchUpcomingMatches(sport:SportType , leagueId:Int){
-        RemoteDataSource.shared.getUpcomingMatches(sport: sport, leagueId: leagueId){
+        let fromDate = DateUtils.dateToday()
+        let toDate = DateUtils.dateNextMonth()
+        
+        RemoteDataSource.shared.requestFixtures(sport: sport, leagueId: leagueId, from: fromDate, to: toDate){
             result in
             
             switch result {

@@ -39,4 +39,10 @@ struct Match: Decodable {
     let first_player_key: String?
     let second_player_key: String?
     
+    let event_date_start: String?
+    let event_date_stop: String?
+    
+    let event_home_final_result: String?
+    let event_away_final_result: String?
+        
 }
