@@ -17,6 +17,11 @@
 		9D7D3E0F2DE87040000AC249 /* KickOffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E0E2DE87040000AC249 /* KickOffTests.swift */; };
 		9D7D3E192DE87040000AC249 /* KickOffUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E182DE87040000AC249 /* KickOffUITests.swift */; };
 		9D7D3E1B2DE87040000AC249 /* KickOffUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */; };
+		9D85D3D02DEDB370003C5940 /* KickOffCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3CE2DEDB370003C5940 /* KickOffCoreData.xcdatamodeld */; };
+		9D85D3D22DEDB460003C5940 /* LocalLeague.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D12DEDB460003C5940 /* LocalLeague.swift */; };
+		9D85D3D42DEDC91A003C5940 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D32DEDC91A003C5940 /* FavViewController.swift */; };
+		9D85D3D62DEDD8FD003C5940 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */; };
+		9D85D3D92DEDE16C003C5940 /* FavPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3D82DEDE16C003C5940 /* FavPresenter.swift */; };
 		9DD4C3822DE8AD640061BB3E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD4C3812DE8AD640061BB3E /* TestViewController.swift */; };
 		9DD7DA9C2DE9CC7A001C7900 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD7DA9A2DE9CC7A001C7900 /* HomeCollectionViewCell.swift */; };
 		9DD7DA9D2DE9CC7A001C7900 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DD7DA9B2DE9CC7A001C7900 /* HomeCollectionViewCell.xib */; };
@@ -104,6 +109,11 @@
 		9D7D3E142DE87040000AC249 /* KickOffUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KickOffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7D3E182DE87040000AC249 /* KickOffUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickOffUITests.swift; sourceTree = "<group>"; };
 		9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickOffUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9D85D3CF2DEDB370003C5940 /* KickOffCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KickOffCoreData.xcdatamodel; sourceTree = "<group>"; };
+		9D85D3D12DEDB460003C5940 /* LocalLeague.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLeague.swift; sourceTree = "<group>"; };
+		9D85D3D32DEDC91A003C5940 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
+		9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		9D85D3D82DEDE16C003C5940 /* FavPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavPresenter.swift; sourceTree = "<group>"; };
 		9DD4C3812DE8AD640061BB3E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9DD7DA9A2DE9CC7A001C7900 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DD7DA9B2DE9CC7A001C7900 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -226,6 +236,7 @@
 				BBC2D2CF2DE89BEC002278F1 /* Resources */,
 				BBC2D2CE2DE89BD9002278F1 /* App */,
 				9D7D3E052DE8703F000AC249 /* Info.plist */,
+				9D85D3CE2DEDB370003C5940 /* KickOffCoreData.xcdatamodeld */,
 			);
 			path = KickOff;
 			sourceTree = "<group>";
@@ -245,6 +256,22 @@
 				9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */,
 			);
 			path = KickOffUITests;
+			sourceTree = "<group>";
+		};
+		9D85D3CD2DEDB15F003C5940 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D85D3D12DEDB460003C5940 /* LocalLeague.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D85D3D72DEDE145003C5940 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9D85D3D82DEDE16C003C5940 /* FavPresenter.swift */,
+			);
+			path = presenter;
 			sourceTree = "<group>";
 		};
 		9DB35F2649016324CE3A3C01 /* Frameworks */ = {
@@ -451,6 +478,7 @@
 		BBC005E22DE9B70C00DE1FF3 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				9D85D3CD2DEDB15F003C5940 /* Model */,
 				BBC005E32DE9B72100DE1FF3 /* LocalDataSource.swift */,
 			);
 			path = Local;
@@ -463,6 +491,7 @@
 				BBC005E62DE9BA7600DE1FF3 /* HomeCollectionViewController.swift */,
 				9DD7DA9A2DE9CC7A001C7900 /* HomeCollectionViewCell.swift */,
 				9DD7DA9B2DE9CC7A001C7900 /* HomeCollectionViewCell.xib */,
+				9D85D3D32DEDC91A003C5940 /* FavViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -491,6 +520,7 @@
 			children = (
 				BBA8E2F32DEAD95600B4CD45 /* DateUtils.swift */,
 				BBA8E2F52DEAE64C00B4CD45 /* FormatUtils.swift */,
+				9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -584,6 +614,7 @@
 		BBC2D2DC2DE8AA62002278F1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9D85D3D72DEDE145003C5940 /* presenter */,
 				BBC005E52DE9BA1300DE1FF3 /* View */,
 			);
 			path = Home;
@@ -779,9 +810,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC005D62DE996A100DE1FF3 /* RemoteDataSource.swift in Sources */,
+				9D85D3D22DEDB460003C5940 /* LocalLeague.swift in Sources */,
 				9D7D3DF92DE87032000AC249 /* ViewController.swift in Sources */,
 				BB6D2DAA2DEC1F8600BB282E /* TennisRemoteService.swift in Sources */,
 				BBA8E3052DEB171400B4CD45 /* Team.swift in Sources */,
+				9D85D3D02DEDB370003C5940 /* KickOffCoreData.xcdatamodeld in Sources */,
 				9DD7DAA22DE9EB11001C7900 /* LeaguesViewController.swift in Sources */,
 				BB6D2E4A2DECA3AA00BB282E /* PlayerDetailsCell.swift in Sources */,
 				BB6D2DF82DEC57BE00BB282E /* TennisGameCell.swift in Sources */,
@@ -804,14 +837,17 @@
 				BB6D2DAD2DEC218C00BB282E /* TennisDetailsPresenter.swift in Sources */,
 				BBBF5CAB2DEA4ED600E60FFC /* TeamCell.swift in Sources */,
 				BBC005E02DE9B44000DE1FF3 /* Endpoint.swift in Sources */,
+				9D85D3D62DEDD8FD003C5940 /* AlertManager.swift in Sources */,
 				BBA8E2EA2DEAD67E00B4CD45 /* LeaugeDetailsPresenter.swift in Sources */,
 				BBC005E72DE9BA7600DE1FF3 /* HomeCollectionViewController.swift in Sources */,
+				9D85D3D42DEDC91A003C5940 /* FavViewController.swift in Sources */,
 				BB6D2E472DECA3AA00BB282E /* TeamDetailsViewController.swift in Sources */,
 				BBA8E2F02DEAD90E00B4CD45 /* Match.swift in Sources */,
 				BBC005E42DE9B72100DE1FF3 /* LocalDataSource.swift in Sources */,
 				BBBF5CA32DEA4E7B00E60FFC /* LastMatchCell.swift in Sources */,
 				9DD7DAA62DE9ECCC001C7900 /* LeaguesTableViewCell.swift in Sources */,
 				BBBF5CA72DEA4EA100E60FFC /* UpcomingMatchCell.swift in Sources */,
+				9D85D3D92DEDE16C003C5940 /* FavPresenter.swift in Sources */,
 				BBC005ED2DE9CBBD00DE1FF3 /* LeagueDetailsViewController.swift in Sources */,
 				BBC2D2F12DE8D7BA002278F1 /* OnBoardingViewController.swift in Sources */,
 				BB6D2E4B2DECA3AA00BB282E /* RemoteData.swift in Sources */,
@@ -1154,6 +1190,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9D85D3CE2DEDB370003C5940 /* KickOffCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9D85D3CF2DEDB370003C5940 /* KickOffCoreData.xcdatamodel */,
+			);
+			currentVersion = 9D85D3CF2DEDB370003C5940 /* KickOffCoreData.xcdatamodel */;
+			path = KickOffCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9D7D3DE92DE87032000AC249 /* Project object */;
 }
