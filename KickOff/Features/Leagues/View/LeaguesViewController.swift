@@ -105,6 +105,8 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
         switch sportType {
         case .tennis:
             navigateToTennisLeagueDetails(leauge: leagues[indexPath.row])
+        case .cricket:
+            navigateToCricketLeagueDetails(leauge: leagues[indexPath.row])
         default:
             navigateToLeagueDetails(leauge: leagues[indexPath.row])
         }
@@ -121,6 +123,13 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
     func navigateToTennisLeagueDetails(leauge : League){
         let storyboard = UIStoryboard(name: "TennisDetails", bundle: nil)
         let lVC = storyboard.instantiateViewController(withIdentifier: "TennisDetails") as! TennisLeagueViewController
+        lVC.league = leauge
+        self.navigationController?.pushViewController(lVC, animated: true)
+    }
+    
+    func navigateToCricketLeagueDetails(leauge : League){
+        let storyboard = UIStoryboard(name: "CricketDetails", bundle: nil)
+        let lVC = storyboard.instantiateViewController(withIdentifier: "CricketDetails") as! CircketLeagueViewController
         lVC.league = leauge
         self.navigationController?.pushViewController(lVC, animated: true)
     }

@@ -12,29 +12,7 @@ import Alamofire
 
 extension RemoteDataSource {
     
-    func getLastGames(
-        sport: SportType,
-        leagueId: Int,
-        completion: @escaping (Result<[TennisMatch], Error>) -> Void
-    ) {
-        let fromDate = DateUtils.dateTwentyYearsAgo()
-        let toDate = DateUtils.dateYesterday()
-
-        requestFixtures(sport: sport, leagueId: leagueId, from: fromDate, to: toDate, completion: completion)
-    }
-
-    func getUpcomingGames(
-        sport: SportType,
-        leagueId: Int,
-        completion: @escaping (Result<[TennisMatch], Error>) -> Void
-    ) {
-        let fromDate = DateUtils.dateToday()
-        let toDate = DateUtils.dateNextMonth()
-
-        requestFixtures(sport: sport, leagueId: leagueId, from: fromDate, to: toDate, completion: completion)
-    }
-
-    private func requestFixtures(
+    func requestTennisFixtures(
         sport: SportType,
         leagueId: Int,
         from: String,
@@ -46,9 +24,7 @@ extension RemoteDataSource {
         AF.request(endpoint.url, parameters: endpoint.parameters)
             .validate()
             .responseDecodable(of: TennisMatchResponse.self) { response in
-                
-              print("Tennis response \(response)")
-                
+                                
                 switch response.result {
                 case .success(let data):
                     completion(.success(data.result ?? []))
