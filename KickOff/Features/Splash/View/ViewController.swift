@@ -29,7 +29,8 @@ class ViewController: UIViewController {
 //            let testVC  : TestViewController = storyboard?.instantiateViewController(withIdentifier: "test") as! TestViewController
 //            navigationController?.setViewControllers([testVC], animated: true)
             
-            self?.navigateToHome()
+            //self?.navigateToHome()
+            self?.navigateToOnBoarding()
             
            }
         
