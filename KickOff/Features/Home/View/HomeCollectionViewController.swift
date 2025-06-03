@@ -1,8 +1,5 @@
 import UIKit
 
-
-
-
 class HomeCollectionViewController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
     
     let sports: [SportType] = SportType.allCases
@@ -88,7 +85,16 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigateToLeagues(sport: sports[indexPath.item])
+        
+        NetworkManager.isInternetAvailable  { isConnected in
+            DispatchQueue.main.async {
+                if isConnected {
+                    self.navigateToLeagues(sport: self.sports[indexPath.item])
+                } else {
+                    AlertManager.showNoInternetAlert(on: self)
+                }
+            }
+        }
     }
     
     func navigateToLeagues(sport:SportType){
@@ -99,35 +105,7 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
     }
 
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
-    }
-    */
+
 
 }

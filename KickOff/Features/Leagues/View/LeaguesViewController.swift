@@ -37,6 +37,7 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol, UISearchResu
         let nib=UINib(nibName: "LeaguesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         
+        LoadingIndicatorUtil.shared.show(on: self.view)
         presenter = LeaguesPresenter(view: self)
         presenter.fetchLeagues(for: sportType ?? .football)
         
@@ -50,6 +51,7 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol, UISearchResu
                self.leagues = leagues
                self.filteredLeagues = leagues
                self.tableView.reloadData()
+               LoadingIndicatorUtil.shared.hide()
            }
        }
     
@@ -126,17 +128,21 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol, UISearchResu
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           let selectedLeague = isFiltering() ? filteredLeagues[indexPath.row] : leagues[indexPath.row]
-           
-           switch sportType {
-           case .tennis:
-               navigateToTennisLeagueDetails(leauge: selectedLeague)
-           case .cricket:
-               navigateToCricketLeagueDetails(leauge: selectedLeague)
-           default:
-               navigateToLeagueDetails(leauge: selectedLeague)
-           }
-       }
+        NetworkManager.isInternetAvailable  { isConnected in
+            DispatchQueue.main.async {
+                if isConnected {
+                    switch self.sportType {
+                    case .tennis:
+                        self.navigateToTennisLeagueDetails(leauge: self.leagues[indexPath.row])
+                    case .cricket:
+                        self.navigateToCricketLeagueDetails(leauge: self.leagues[indexPath.row])
+                    default:
+                        self.navigateToLeagueDetails(leauge: self.leagues[indexPath.row])
+                    }                } else {
+                    AlertManager.showNoInternetAlert(on: self)
+                }
+            }
+        }
     
     private func isFiltering() -> Bool {
            return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)

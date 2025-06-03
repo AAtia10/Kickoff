@@ -162,14 +162,24 @@ class FavViewController: UITableViewController,FavViewProtocol {
         
         let league = favoriteLeagues[indexPath.row]
         
-        switch league.sport{
-        case .tennis:
-            navigateToTennisLeagueDetails(leauge: league)
-        case .cricket:
-            navigateToCricketLeagueDetails(leauge: league)
-        default:
-            navigateToLeagueDetails(leauge: league)
+        NetworkManager.isInternetAvailable  { isConnected in
+            DispatchQueue.main.async {
+                if isConnected {
+                    switch league.sport{
+                    case .tennis:
+                        self.navigateToTennisLeagueDetails(leauge: league)
+                    case .cricket:
+                        self.navigateToCricketLeagueDetails(leauge: league)
+                    default:
+                        self.navigateToLeagueDetails(leauge: league)
+                    }
+                } else {
+                    AlertManager.showNoInternetAlert(on: self)
+                }
+            }
         }
+        
+        
     }
     
     

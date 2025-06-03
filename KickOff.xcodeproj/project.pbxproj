@@ -54,6 +54,7 @@
 		BBA8E2F62DEAE64C00B4CD45 /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA8E2F52DEAE64C00B4CD45 /* FormatUtils.swift */; };
 		BBA8E3032DEB16F600B4CD45 /* TeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA8E3022DEB16F600B4CD45 /* TeamsResponse.swift */; };
 		BBA8E3052DEB171400B4CD45 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA8E3042DEB171400B4CD45 /* Team.swift */; };
+		BBBAE3222DEF41AD00A9D68C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBAE3212DEF41AD00A9D68C /* NetworkManager.swift */; };
 		BBBF5CA32DEA4E7B00E60FFC /* LastMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF5CA12DEA4E7B00E60FFC /* LastMatchCell.swift */; };
 		BBBF5CA42DEA4E7B00E60FFC /* LastMatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBF5CA22DEA4E7B00E60FFC /* LastMatchCell.xib */; };
 		BBBF5CA72DEA4EA100E60FFC /* UpcomingMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBF5CA52DEA4EA100E60FFC /* UpcomingMatchCell.swift */; };
@@ -78,6 +79,8 @@
 		BBC2D2F82DE8D8C4002278F1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC2D2F62DE8D8C4002278F1 /* Home.storyboard */; };
 		BBF55F0D2DEDD8B3001996E5 /* CricketGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF55F0B2DEDD8B3001996E5 /* CricketGameCell.swift */; };
 		BBF55F0E2DEDD8B3001996E5 /* CricketGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF55F0C2DEDD8B3001996E5 /* CricketGameCell.xib */; };
+		BBF55F142DEE0390001996E5 /* LoadingIndicatorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF55F132DEE0390001996E5 /* LoadingIndicatorUtil.swift */; };
+		BBF55F162DEE0C8F001996E5 /* EmptySectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF55F152DEE0C8F001996E5 /* EmptySectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +158,7 @@
 		BBA8E2F52DEAE64C00B4CD45 /* FormatUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtils.swift; sourceTree = "<group>"; };
 		BBA8E3022DEB16F600B4CD45 /* TeamsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsResponse.swift; sourceTree = "<group>"; };
 		BBA8E3042DEB171400B4CD45 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		BBBAE3212DEF41AD00A9D68C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BBBF5CA12DEA4E7B00E60FFC /* LastMatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastMatchCell.swift; sourceTree = "<group>"; };
 		BBBF5CA22DEA4E7B00E60FFC /* LastMatchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastMatchCell.xib; sourceTree = "<group>"; };
 		BBBF5CA52DEA4EA100E60FFC /* UpcomingMatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMatchCell.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 		BBC2D2F62DE8D8C4002278F1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		BBF55F0B2DEDD8B3001996E5 /* CricketGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CricketGameCell.swift; sourceTree = "<group>"; };
 		BBF55F0C2DEDD8B3001996E5 /* CricketGameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CricketGameCell.xib; sourceTree = "<group>"; };
+		BBF55F132DEE0390001996E5 /* LoadingIndicatorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorUtil.swift; sourceTree = "<group>"; };
+		BBF55F152DEE0C8F001996E5 /* EmptySectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -557,9 +563,10 @@
 		BBC005EE2DE9E12400DE1FF3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BBF55F172DEE0C94001996E5 /* ViewUtils */,
 				BBA8E2F32DEAD95600B4CD45 /* DateUtils.swift */,
 				BBA8E2F52DEAE64C00B4CD45 /* FormatUtils.swift */,
-				9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */,
+				BBBAE3212DEF41AD00A9D68C /* NetworkManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -676,6 +683,16 @@
 				9D85D3D32DEDC91A003C5940 /* FavViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BBF55F172DEE0C94001996E5 /* ViewUtils */ = {
+			isa = PBXGroup;
+			children = (
+				9D85D3D52DEDD8FC003C5940 /* AlertManager.swift */,
+				BBF55F132DEE0390001996E5 /* LoadingIndicatorUtil.swift */,
+				BBF55F152DEE0C8F001996E5 /* EmptySectionView.swift */,
+			);
+			path = ViewUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -877,6 +894,7 @@
 				BBA8E3052DEB171400B4CD45 /* Team.swift in Sources */,
 				9D85D3D02DEDB370003C5940 /* KickOffCoreData.xcdatamodeld in Sources */,
 				9DD7DAA22DE9EB11001C7900 /* LeaguesViewController.swift in Sources */,
+				BBF55F162DEE0C8F001996E5 /* EmptySectionView.swift in Sources */,
 				BBF55F0D2DEDD8B3001996E5 /* CricketGameCell.swift in Sources */,
 				BB6D2E4A2DECA3AA00BB282E /* PlayerDetailsCell.swift in Sources */,
 				BB6D2DF82DEC57BE00BB282E /* TennisGameCell.swift in Sources */,
@@ -891,6 +909,7 @@
 				BB04FBD32DED099500D171C1 /* CricketLeaguePresenter.swift in Sources */,
 				9D7D3DF52DE87032000AC249 /* AppDelegate.swift in Sources */,
 				9DD4C3822DE8AD640061BB3E /* TestViewController.swift in Sources */,
+				BBBAE3222DEF41AD00A9D68C /* NetworkManager.swift in Sources */,
 				9D7D3DF72DE87032000AC249 /* SceneDelegate.swift in Sources */,
 				9DD7DA9C2DE9CC7A001C7900 /* HomeCollectionViewCell.swift in Sources */,
 				BBC2D2F22DE8D7BA002278F1 /* ContainerViewController.swift in Sources */,
@@ -916,6 +935,7 @@
 				BBC2D2F12DE8D7BA002278F1 /* OnBoardingViewController.swift in Sources */,
 				BB6D2E4B2DECA3AA00BB282E /* RemoteData.swift in Sources */,
 				BB6D2DA12DEC1A5D00BB282E /* TennisLeagueViewController.swift in Sources */,
+				BBF55F142DEE0390001996E5 /* LoadingIndicatorUtil.swift in Sources */,
 				BBA8E3032DEB16F600B4CD45 /* TeamsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
