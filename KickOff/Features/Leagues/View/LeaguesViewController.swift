@@ -14,12 +14,18 @@ protocol LeaguesProtocol: AnyObject {
 }
 
 
-class LeaguesViewController: UITableViewController,LeaguesProtocol {
+class LeaguesViewController: UITableViewController,LeaguesProtocol, UISearchResultsUpdating {
+    
+    
+    
+    var filteredLeagues: [League] = []
         
     var presenter: LeaguesPresenter!
     var leagues: [League] = []
     var sportType: SportType?
+    var searchController: UISearchController!
     
+   
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +41,33 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
         presenter = LeaguesPresenter(view: self)
         presenter.fetchLeagues(for: sportType ?? .football)
         
+        setupSearchController()
+      
+        
     }
     
     func renderLeagues(leagues: [League]) {
            DispatchQueue.main.async {
                self.leagues = leagues
+               self.filteredLeagues = leagues
                self.tableView.reloadData()
                LoadingIndicatorUtil.shared.hide()
            }
+       }
+    
+    
+    
+    private func setupSearchController() {
+           searchController = UISearchController(searchResultsController: nil)
+           searchController.searchResultsUpdater = self
+           searchController.obscuresBackgroundDuringPresentation = false
+           searchController.searchBar.placeholder = "Search Leagues"
+           navigationItem.searchController = searchController
+           definesPresentationContext = true
+           
+           // Customize search bar appearance if needed
+           searchController.searchBar.tintColor = .systemBlue
+           searchController.searchBar.searchTextField.backgroundColor = .systemBackground
        }
 
     // MARK: - Table view data source
@@ -54,7 +79,7 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return leagues.count
+        return isFiltering() ? filteredLeagues.count : leagues.count
     }
 
     
@@ -62,8 +87,7 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LeaguesTableViewCell
         cell.contentView.frame = cell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 64, bottom: 0, right: 64))
         
-        var placeholerImage : UIImage!
-        
+        var placeholerImage: UIImage!
         
         switch sportType {
         case .football:
@@ -81,16 +105,13 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
             placeholerImage = UIImage(named: "leaguePlaceholder")
         }
         
-        
-        let league = leagues[indexPath.row]
-       cell.leagueName.text = league.league_name
+        let league = isFiltering() ? filteredLeagues[indexPath.row] : leagues[indexPath.row]
+        cell.leagueName.text = league.league_name
         if let logo = league.league_logo, let url = URL(string: logo) {
-            cell.leagueImage.kf.setImage(with: url , placeholder: placeholerImage)
+            cell.leagueImage.kf.setImage(with: url, placeholder: placeholerImage)
         } else {
             cell.leagueImage.image = placeholerImage
         }
-
-        
 
         return cell
     }
@@ -122,8 +143,20 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
                 }
             }
         }
-        
-        
+    
+    private func isFiltering() -> Bool {
+           return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
+       }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+            filteredLeagues = leagues.filter { league in
+                return league.league_name.lowercased().contains(searchText.lowercased()) ?? false
+            }
+            tableView.reloadData()
+        }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text ?? "")
     }
     
     func navigateToLeagueDetails(leauge : League){
