@@ -158,6 +158,10 @@ class FavViewController: UITableViewController,FavViewProtocol {
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "Favourite Leagues"
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let league = favoriteLeagues[indexPath.row]

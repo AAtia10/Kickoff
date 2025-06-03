@@ -16,9 +16,15 @@ class ContainerViewController: UIViewController {
     }
     
     @IBAction func onSkipClicked(_ sender: Any) {
+        navigateToHome()
+    }
+    
+    
+    func navigateToHome(){
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "home")
-        self.navigationController?.setViewControllers([homeVC], animated: true)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as? UITabBarController {
+            self.navigationController?.setViewControllers([tabBarController], animated: true)
+        }
     }
 
 }
