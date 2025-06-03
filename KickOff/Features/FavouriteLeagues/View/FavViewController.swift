@@ -7,16 +7,20 @@
 
 import UIKit
 import Kingfisher
+import Lottie
+
 
 protocol FavViewProtocol {
     func showFavoriteLeagues(_ leagues: [LocalLeague])
 }
 
 class FavViewController: UITableViewController,FavViewProtocol {
-   
     
+   
+   
     var favoriteLeagues: [LocalLeague] = []
     var presenter:FavPresenter?
+    private var emptyStateAnimationView: LottieAnimationView?
 
 
     override func viewDidLoad() {
@@ -25,10 +29,34 @@ class FavViewController: UITableViewController,FavViewProtocol {
     
         let nib=UINib(nibName: "LeaguesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
-        
+        setupEmptyStateLottie()
         
         
     }
+    
+    
+    private func setupEmptyStateLottie() {
+        let animationView = LottieAnimationView(name: "favlottie")
+        animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        animationView.center = tableView.center
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.isHidden = true
+        tableView.backgroundView = animationView
+        self.emptyStateAnimationView = animationView
+    }
+    
+    private func toggleEmptyState() {
+        if favoriteLeagues.isEmpty {
+            emptyStateAnimationView?.isHidden = false
+            emptyStateAnimationView?.play()
+        } else {
+            emptyStateAnimationView?.stop()
+            emptyStateAnimationView?.isHidden = true
+        }
+    }
+
+
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,6 +67,8 @@ class FavViewController: UITableViewController,FavViewProtocol {
     func showFavoriteLeagues(_ leagues: [LocalLeague]) {
         favoriteLeagues=leagues
         tableView.reloadData()
+        toggleEmptyState()
+        
     }
     
 
