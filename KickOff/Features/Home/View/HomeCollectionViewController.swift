@@ -97,12 +97,15 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
         }
     }
     
+    
     func navigateToLeagues(sport:SportType){
         let storyboard = UIStoryboard(name: "Leagues", bundle: nil)
         let lVC = storyboard.instantiateViewController(withIdentifier: "Leagues") as! LeaguesViewController
         lVC.sportType = sport
         self.navigationController?.pushViewController(lVC, animated: true)
     }
+    
+    
 
 
     

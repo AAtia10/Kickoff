@@ -12,6 +12,23 @@ class LeaugeDetailsPresenter{
         fetchLastMatches(sport: sport, leagueId: leagueId)
     }
     
+    func isFav(leagueId:Int){
+        let isFav = LocalDataSource.instance.isFav(key: leagueId)
+        self.view?.loadFavState(isFav: isFav)
+    }
+    
+    func removeFromFav(leagueId:Int){
+        LocalDataSource.instance.removeLeague(byKey: leagueId, completion: {
+            self.view?.loadFavState(isFav: false)
+        })
+    }
+    
+    func addToFav(league: LocalLeague){
+        LocalDataSource.instance.addLeague(league)
+        self.view?.loadFavState(isFav: true)
+    }
+    
+    
     private func fetchLastMatches(sport:SportType , leagueId:Int){
         
         let fromDate = DateUtils.dateTwoMonthsAgo()
