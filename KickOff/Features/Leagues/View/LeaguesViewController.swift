@@ -139,10 +139,11 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol, UISearchResu
                     default:
                         self.navigateToLeagueDetails(leauge: self.leagues[indexPath.row])
                     }                } else {
-                    AlertManager.showNoInternetAlert(on: self)
-                }
+                        AlertManager.showNoInternetAlert(on: self)
+                    }
             }
         }
+    }
     
     private func isFiltering() -> Bool {
            return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
