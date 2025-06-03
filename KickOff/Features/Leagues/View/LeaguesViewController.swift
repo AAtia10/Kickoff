@@ -31,6 +31,7 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
         let nib=UINib(nibName: "LeaguesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         
+        LoadingIndicatorUtil.shared.show(on: self.view)
         presenter = LeaguesPresenter(view: self)
         presenter.fetchLeagues(for: sportType ?? .football)
         
@@ -40,6 +41,7 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
            DispatchQueue.main.async {
                self.leagues = leagues
                self.tableView.reloadData()
+               LoadingIndicatorUtil.shared.hide()
            }
        }
 
@@ -105,14 +107,23 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch sportType {
-        case .tennis:
-            navigateToTennisLeagueDetails(leauge: leagues[indexPath.row])
-        case .cricket:
-            navigateToCricketLeagueDetails(leauge: leagues[indexPath.row])
-        default:
-            navigateToLeagueDetails(leauge: leagues[indexPath.row])
+        NetworkManager.isInternetAvailable  { isConnected in
+            DispatchQueue.main.async {
+                if isConnected {
+                    switch self.sportType {
+                    case .tennis:
+                        self.navigateToTennisLeagueDetails(leauge: self.leagues[indexPath.row])
+                    case .cricket:
+                        self.navigateToCricketLeagueDetails(leauge: self.leagues[indexPath.row])
+                    default:
+                        self.navigateToLeagueDetails(leauge: self.leagues[indexPath.row])
+                    }                } else {
+                    AlertManager.showNoInternetAlert(on: self)
+                }
+            }
         }
+        
+        
     }
     
     func navigateToLeagueDetails(leauge : League){

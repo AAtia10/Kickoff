@@ -4,12 +4,12 @@ import Kingfisher
 
 
 protocol LeagueDetailsProtocol {
-    func loadLastMatches(matches : [Match])
-    func loadUpcomingMatches(matches : [Match])
-    func loadTeams(teams : [Team])
+    func loadData(lastMatches:[Match] , upcomingMatches:[Match] , teams:[Team])
 }
 
 class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsProtocol{
+    
+    
     
     var sport : SportType?
     var league : League?
@@ -33,10 +33,15 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         
         navigationItem.rightBarButtonItem = heartButton
         
+        view.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .clear
+        collectionView.alpha = 0
+        LoadingIndicatorUtil.shared.show(on: view)
+        
         presenter = LeaugeDetailsPresenter(view: self)
-        presenter?.fetchLastMatches(sport: sport ?? .football, leagueId: leagueId)
-        presenter?.fetchUpcomingMatches(sport: sport ?? .football, leagueId: leagueId)
-        presenter?.fetchTeams(sport: sport ?? .football, leagueId: leagueId)
+        
+        
+        presenter?.fetchData(sport: sport ?? .football, leagueId: leagueId)
 
         collectionView.collectionViewLayout = createLayout()
         
@@ -45,6 +50,9 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         collectionView.register(UINib(nibName: "UpcomingMatchCell", bundle: nil), forCellWithReuseIdentifier: "UpcomingMatchCell")
         
         collectionView.register(UINib(nibName: "TeamCell", bundle: nil), forCellWithReuseIdentifier: "TeamCell")
+        
+        collectionView.register(EmptySectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: EmptySectionView.identifier)
+
     }
     
     @objc func onFavTapped() {
@@ -192,6 +200,17 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
           , bottom: 0, trailing: 0)
           section.orthogonalScrollingBehavior = .continuous
         
+        if lastMatches.isEmpty {
+            let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.18))
+                let footer = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: footerSize,
+                    elementKind: UICollectionView.elementKindSectionFooter,
+                    alignment: .bottom
+                )
+                section.boundarySupplementaryItems = [footer]
+            }
+        
+        
          return section
     }
     
@@ -211,6 +230,17 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
                                                         , bottom: 0, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
+        
+        if teams.isEmpty {
+                let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
+                let footer = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: footerSize,
+                    elementKind: UICollectionView.elementKindSectionFooter,
+                    alignment: .bottom
+                )
+                section.boundarySupplementaryItems = [footer]
+            }
+        
         return section
     }
     
@@ -229,31 +259,62 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
                                                         , bottom: 0, trailing: 0)
+        if upcomingMatches.isEmpty {
+                let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(120))
+                let footer = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: footerSize,
+                    elementKind: UICollectionView.elementKindSectionFooter,
+                    alignment: .bottom
+                )
+                section.boundarySupplementaryItems = [footer]
+            }
+        
+        
         return section
     }
     
-    func loadLastMatches(matches: [Match]) {
+    func loadData(lastMatches: [Match], upcomingMatches: [Match], teams: [Team]) {
+        loadUpcomingMatches(matches: upcomingMatches)
+        loadLastMatches(matches: lastMatches)
+        loadTeams(teams: teams)
+        UIView.animate(withDuration: 0.3) {
+                self.collectionView.alpha = 1
+            }
+        LoadingIndicatorUtil.shared.hide()
+    }
+    
+    private func loadLastMatches(matches: [Match]) {
         lastMatches = matches
         collectionView.reloadData()
+        print("last -> \(matches.count)")
     }
     
-    func loadUpcomingMatches(matches: [Match]) {
+    private func loadUpcomingMatches(matches: [Match]) {
         upcomingMatches = matches
         collectionView.reloadData()
+        print("upcoming -> \(matches.count)")
     }
     
-    func loadTeams(teams : [Team]) {
+    private func loadTeams(teams : [Team]) {
         self.teams = teams
         collectionView.reloadData()
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if(indexPath.section == 2 && sport == .football){
-            let team = teams[indexPath.item]
-            navigateToTeamDetails(team: team)
-        }
-        
+        NetworkManager.isInternetAvailable  { isConnected in
+            DispatchQueue.main.async {
+                if isConnected {
+                    if(indexPath.section == 2 && self.sport == .football){
+                        let team = self.teams[indexPath.item]
+                        self.navigateToTeamDetails(team: team)
+                    }
+                } else {
+                    AlertManager.showNoInternetAlert(on: self)
+                }
+            }
+        }        
     }
     
     func navigateToTeamDetails(team : Team){
@@ -262,6 +323,17 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         tVC.team = team
         navigationController?.pushViewController(tVC, animated: true)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionFooter {
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EmptySectionView.identifier, for: indexPath) as! EmptySectionView
+            return footer
+        }
+        return UICollectionReusableView()
+    }
+
     
     
 

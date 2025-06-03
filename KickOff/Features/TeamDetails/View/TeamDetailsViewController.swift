@@ -15,7 +15,6 @@ protocol TeamDetailsProtocol: AnyObject {
 class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableViewDelegate, UITableViewDataSource {
 
     
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var teamTable: UITableView!
     @IBOutlet weak var teamLabel: UILabel!
     @IBOutlet weak var teamImage: UIImageView!
@@ -36,8 +35,9 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
         presenter = TeamDetailsPresenter(view: self)
         
         if let id = team?.team_key {
-            indicator.isHidden = false
-            indicator.startAnimating()
+            LoadingIndicatorUtil.shared.show(on: self.view)
+            //indicator.isHidden = false
+            //indicator.startAnimating()
             presenter?.fetchTeamDetails(sport: .football, teamId: id)
         }
         
@@ -51,8 +51,9 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
     func renderTeamDetails(_ team: Team) {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                indicator.isHidden = true
-                indicator.stopAnimating()
+//                indicator.isHidden = true
+//                indicator.stopAnimating()
+                LoadingIndicatorUtil.shared.hide()
                 self.team = team
                 self.teamLabel.text = team.team_name
                 if let logoUrl = team.team_logo, let url = URL(string: logoUrl) {

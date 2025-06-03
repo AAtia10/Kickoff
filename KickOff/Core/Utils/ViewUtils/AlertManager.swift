@@ -25,4 +25,10 @@ class AlertManager{
            
            viewController.present(alert, animated: true, completion: nil)
        }
+    
+    static func showNoInternetAlert(on viewController: UIViewController) {
+        let alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet and try again.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        viewController.present(alert, animated: true, completion: nil)
+    }
 }
