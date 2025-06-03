@@ -128,16 +128,17 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol, UISearchResu
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedLeague = isFiltering() ? filteredLeagues[indexPath.row] : leagues[indexPath.row]
         NetworkManager.isInternetAvailable  { isConnected in
             DispatchQueue.main.async {
                 if isConnected {
                     switch self.sportType {
                     case .tennis:
-                        self.navigateToTennisLeagueDetails(leauge: self.leagues[indexPath.row])
+                        self.navigateToTennisLeagueDetails(leauge: selectedLeague)
                     case .cricket:
-                        self.navigateToCricketLeagueDetails(leauge: self.leagues[indexPath.row])
+                        self.navigateToCricketLeagueDetails(leauge: selectedLeague)
                     default:
-                        self.navigateToLeagueDetails(leauge: self.leagues[indexPath.row])
+                        self.navigateToLeagueDetails(leauge: selectedLeague)
                     }                } else {
                         AlertManager.showNoInternetAlert(on: self)
                     }

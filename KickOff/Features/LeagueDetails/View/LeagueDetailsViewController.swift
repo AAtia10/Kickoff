@@ -5,11 +5,10 @@ import Kingfisher
 
 protocol LeagueDetailsProtocol {
     func loadData(lastMatches:[Match] , upcomingMatches:[Match] , teams:[Team])
+    func loadFavState(isFav:Bool)
 }
 
 class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsProtocol{
-    
-    
     
     var sport : SportType?
     var league : League?
@@ -42,6 +41,7 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         
         
         presenter?.fetchData(sport: sport ?? .football, leagueId: leagueId)
+        presenter?.isFav(leagueId: leagueId)
 
         collectionView.collectionViewLayout = createLayout()
         
@@ -51,6 +51,9 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         
         collectionView.register(UINib(nibName: "TeamCell", bundle: nil), forCellWithReuseIdentifier: "TeamCell")
         
+        collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.identifier)
+
+        
         collectionView.register(EmptySectionView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: EmptySectionView.identifier)
 
     }
@@ -58,27 +61,35 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
     @objc func onFavTapped() {
         guard let league = league else { return }
            let leagueId = league.league_key
-
+        
            if isFav {
-               
-               LocalDataSource.instance.removeLeague(byKey: leagueId){}
-               isFav = false
-               navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+               AlertManager.showDeleteAlert(on: self,
+                                            title: "Confirm",
+                                            message: "Are you sure you want to remove this from favorites?"){
+                   self.presenter?.removeFromFav(leagueId: leagueId)
+               }
            } else {
                let localLeague = LocalLeague(fromLeague: league, sport: sport ?? .football)
-               LocalDataSource.instance.addLeague(localLeague)
-               isFav = true
-               navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+               presenter?.addToFav(league: localLeague)
            }
+    }
+    
+    func loadFavState(isFav: Bool) {
+        self.isFav = isFav
+        if(isFav){
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+        }else{
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+        }
     }
 
 
     func createLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, environment in
             switch sectionIndex {
-            case 0: return self.createLastMatchesSection()
-            case 1: return self.createUpcomingMatchesSection()
-            default: return self.createTeamsSection()
+            case 0: return self.createTeamsSection()
+            case 1: return self.createLastMatchesSection()
+            default: return self.createUpcomingMatchesSection()
             }
         }
     }
@@ -90,16 +101,16 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return upcomingMatches.count
-        case 1: return lastMatches.count
-        default: return teams.count
+        case 0: return teams.count
+        case 1: return upcomingMatches.count
+        default: return lastMatches.count
         }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         switch indexPath.section {
-        case 0:
+        case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastMatchCell", for: indexPath) as! LastMatchCell
             
             let match = upcomingMatches[indexPath.item]
@@ -116,7 +127,7 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
             }
             
             return cell
-        case 1:
+        case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpcomingMatchCell", for: indexPath) as! UpcomingMatchCell
             
             let match = lastMatches[indexPath.item]
@@ -188,7 +199,7 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
       , heightDimension: .fractionalHeight(1))
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
       
-      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8)
                                              , heightDimension: .fractionalHeight(0.18))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize
       , subitems: [item])
@@ -196,7 +207,7 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
           , bottom: 8, trailing: 8)
           
       let section = NSCollectionLayoutSection(group: group)
-          section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
+          section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0
           , bottom: 0, trailing: 0)
           section.orthogonalScrollingBehavior = .continuous
         
@@ -209,7 +220,12 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
                 )
                 section.boundarySupplementaryItems = [footer]
             }
-        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+           let header = NSCollectionLayoutBoundarySupplementaryItem(
+               layoutSize: headerSize,
+               elementKind: UICollectionView.elementKindSectionHeader,
+               alignment: .top)
+           section.boundarySupplementaryItems = [header]
         
          return section
     }
@@ -241,6 +257,13 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
                 section.boundarySupplementaryItems = [footer]
             }
         
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+           let header = NSCollectionLayoutBoundarySupplementaryItem(
+               layoutSize: headerSize,
+               elementKind: UICollectionView.elementKindSectionHeader,
+               alignment: .top)
+           section.boundarySupplementaryItems = [header]
+        
         return section
     }
     
@@ -268,6 +291,13 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
                 )
                 section.boundarySupplementaryItems = [footer]
             }
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+           let header = NSCollectionLayoutBoundarySupplementaryItem(
+               layoutSize: headerSize,
+               elementKind: UICollectionView.elementKindSectionHeader,
+               alignment: .top)
+           section.boundarySupplementaryItems = [header]
         
         
         return section
@@ -323,16 +353,23 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         tVC.team = team
         navigationController?.pushViewController(tVC, animated: true)
     }
+
     
-    override func collectionView(_ collectionView: UICollectionView,
-                                 viewForSupplementaryElementOfKind kind: String,
-                                 at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionFooter {
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EmptySectionView.identifier, for: indexPath) as! EmptySectionView
-            return footer
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.identifier, for: indexPath) as! SectionHeaderView
+            switch indexPath.section {
+            case 0: header.configure(with: "Teams")
+            case 1: header.configure(with: "Upcoming Matches")
+            case 2: header.configure(with: "Last Matches")
+            default: break
+            }
+            return header
         }
-        return UICollectionReusableView()
+
+        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EmptySectionView.identifier, for: indexPath)
     }
+
 
     
     
