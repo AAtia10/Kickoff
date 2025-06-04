@@ -131,7 +131,7 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
             } else {
                 if let player = playerSections[title]?[indexPath.row] {
                     cell.playerName.text = player.player_name
-                    cell.playerNumber.text = player.player_number?.convertEnglishDigitsToArabic()
+                    cell.playerNumber.text =  player.player_number?.convertEnglishDigitsToArabic()
 
                     if let imageUrl = player.player_image, let url = URL(string: imageUrl) {
                         cell.playerImage.kf.setImage(with: url,placeholder: UIImage(named: "playerplaceholder"))
