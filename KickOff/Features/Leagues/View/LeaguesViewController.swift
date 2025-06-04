@@ -61,7 +61,7 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol, UISearchResu
            searchController = UISearchController(searchResultsController: nil)
            searchController.searchResultsUpdater = self
            searchController.obscuresBackgroundDuringPresentation = false
-           searchController.searchBar.placeholder = "Search Leagues"
+           searchController.searchBar.placeholder = NSLocalizedString("search", comment: "")
            navigationItem.searchController = searchController
            definesPresentationContext = true
            

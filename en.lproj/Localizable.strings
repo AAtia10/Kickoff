@@ -3,4 +3,6 @@
 "basketball" = "Basketball";
 "cricket" = "Cricket";
 "tennis" = "Tennis";
+
 "delete" = "Delete";
+"search" = "Search by League Name";
