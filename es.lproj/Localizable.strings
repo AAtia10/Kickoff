@@ -13,3 +13,19 @@
 "favourite_header" = "Ligas favoritas";
 
 
+"gk" = "Porteros";
+"def" = "Defensores";
+"mdf" = "Centrocampistas";
+"fwd" = "Delanteros";
+"others" = "Otros";
+"coach" = "Entrenador";
+
+"cancel" = "Cancelar";
+"no_internet_connection" = "Sin conexión a Internet";
+"internet_msg" = "Por favor, verifica tu conexión a Internet e inténtalo de nuevo";
+"ok"="Aceptar";
+
+"home"="Alá";
+"fav"="favoritas";
+
+

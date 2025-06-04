@@ -6,6 +6,7 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title=NSLocalizedString("home", comment: "")
         
         let nib=UINib(nibName: "HomeCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "cell")

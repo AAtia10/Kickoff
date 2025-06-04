@@ -18,7 +18,7 @@ class AlertManager{
            }
            
            
-           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+           let cancelAction = UIAlertAction(title:NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil)
            
            alert.addAction(deleteAction)
            alert.addAction(cancelAction)
@@ -27,8 +27,8 @@ class AlertManager{
        }
     
     static func showNoInternetAlert(on viewController: UIViewController) {
-        let alert = UIAlertController(title: "No Internet Connection", message: "Please check your internet and try again.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alert = UIAlertController(title: NSLocalizedString("no_internet_connection", comment: ""), message: NSLocalizedString("internet_msg", comment: "") , preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:NSLocalizedString("ok", comment: ""), style: .default, handler: nil))
         viewController.present(alert, animated: true, completion: nil)
     }
 }

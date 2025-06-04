@@ -25,6 +25,8 @@ class FavViewController: UITableViewController,FavViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = NSLocalizedString("fav", comment: "")
+
         presenter=FavPresenter(view:self)
     
         let nib=UINib(nibName: "LeaguesTableViewCell", bundle: nil)

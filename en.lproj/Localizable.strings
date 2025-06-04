@@ -12,3 +12,20 @@
 
 
 "favourite_header"="Favourite Leagues";
+
+
+"gk" = "Goalkeepers";
+"def" = "Defenders";
+"mdf" = "Midfielders";
+"fwd" = "Forwards";
+"others" = "Others";
+"coach" = "Coach";
+
+
+"cancel"="Cancel";
+"no_internet_connection"="No Internet Connection";
+"internet_msg"="Please check your internet and try again.";
+"ok"="OK";
+
+"home"="Home";
+"fav"="Favourites";
