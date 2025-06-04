@@ -6,3 +6,7 @@
 
 "delete" ="Borrar";
 "search" ="Buscar por nombre de la liga";
+
+"confirm" = "Confirmar";
+"delete_message" = "¿Estás seguro de que deseas eliminar esto de favoritos?";
+

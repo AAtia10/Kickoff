@@ -148,8 +148,8 @@ class FavViewController: UITableViewController,FavViewProtocol {
         if editingStyle == .delete {
             AlertManager.showDeleteAlert(
                 on: self,
-                title: "Confirm",
-                message: "Are you sure you want to remove this from favorites?"
+                title: NSLocalizedString("confirm", comment: ""),
+                message: NSLocalizedString("delete_message", comment: "")
             ) {
                 self.presenter?.removeLeague(id: league.league_key)
             }
