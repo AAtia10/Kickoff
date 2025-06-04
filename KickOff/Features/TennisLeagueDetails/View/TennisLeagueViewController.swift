@@ -179,7 +179,7 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
                 labels2[i]?.text = s.scoreSecond.components(separatedBy: ".").first ?? "-"
                 i += 1
             }
-            let darkGreen = UIColor(red: 0/255, green: 100/255, blue: 0/255, alpha: 1)
+            
             
             if let results = FormatUtils.splitMatchResult(match.eventFinalResult),
                results.count == 2 {
@@ -225,7 +225,10 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
                 cell.teamImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
                 
             }
-            cell.container.backgroundColor = .white
+            
+            cell.container.backgroundColor  = UIColor { traitCollection in
+                return traitCollection.userInterfaceStyle == .dark ? .black : .white
+            }
             return cell
         }
     }

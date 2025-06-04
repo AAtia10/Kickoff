@@ -92,6 +92,9 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol, UISearchResu
         switch sportType {
         case .football:
             placeholerImage = UIImage(systemName: "soccerball")
+            cell.leagueImage.tintColor = UIColor { traitCollection in
+                return traitCollection.userInterfaceStyle == .dark ? .white : .black
+            }
         case .tennis:
             placeholerImage = UIImage(systemName: "tennisball.fill")
             cell.leagueImage.tintColor = .systemGreen

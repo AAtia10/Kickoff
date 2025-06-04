@@ -25,12 +25,8 @@ class ViewController: UIViewController {
           
         animationView.play()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
-//               guard let self = self else { return }
-//            let testVC  : TestViewController = storyboard?.instantiateViewController(withIdentifier: "test") as! TestViewController
-//            navigationController?.setViewControllers([testVC], animated: true)
             
-            //self?.navigateToHome()
-            self?.navigateToOnBoarding()
+            self?.navigateToHome()
             
            }
         

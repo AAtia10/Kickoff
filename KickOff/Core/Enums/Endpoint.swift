@@ -26,11 +26,14 @@ enum Endpoint {
     }
         
         var parameters: [String: Any] {
+            let lang = LangManager.shared.languageCode
+            
             switch self {
             case .leagues:
                 return [
                     "met": "Leagues",
-                    "APIkey": apiKey
+                    "APIkey": apiKey,
+                    "lang": lang
                 ]
             case .fixtures(_, let leagueId, let from, let to):
                 return [
@@ -38,25 +41,29 @@ enum Endpoint {
                     "APIkey": apiKey,
                     "from": from,
                     "to": to,
-                    "leagueId": leagueId
+                    "leagueId": leagueId,
+                    "lang": lang
                 ]
             case .teams(_, leagueId: let leagueId):
                 return [
                     "met": "Teams",
                     "APIkey": apiKey,
-                    "leagueId": leagueId
+                    "leagueId": leagueId,
+                    "lang": lang
                 ]
             case .tennisPlayers(_, leagueId: let leagueId):
                 return [
                     "met": "Players",
                     "APIkey": apiKey,
-                    "leagueId": leagueId
+                    "leagueId": leagueId,
+                    "lang": lang
                 ]
             case .teamDetails(_, let teamId):
                        return [
                            "met": "Teams",
                            "APIkey": apiKey,
-                           "teamId": teamId
+                           "teamId": teamId,
+                           "lang": lang
                        ]
             }
         }

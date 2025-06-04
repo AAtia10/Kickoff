@@ -10,13 +10,10 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
         let nib=UINib(nibName: "HomeCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "cell")
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        collectionView.register(SectionHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: SectionHeaderView.identifier)
 
-        // Register cell classes
-       
-
-        // Do any additional setup after loading the view.
     }
 
     /*
@@ -69,7 +66,7 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 64, left: 16, bottom: 16, right: 16)
+        return UIEdgeInsets(top: 32, left: 16, bottom: 16, right: 16)
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -96,6 +93,29 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
             }
         }
     }
+    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                          withReuseIdentifier: SectionHeaderView.identifier,
+                                                                          for: indexPath) as! SectionHeaderView
+            
+            header.centerTitle()
+            header.configure(with: NSLocalizedString("Home_Header", comment: "Home"))
+            return header
+        }
+        return UICollectionReusableView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 40)
+    }
+
+
     
     
     func navigateToLeagues(sport:SportType){

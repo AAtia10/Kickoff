@@ -13,7 +13,7 @@ class AlertManager{
            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
            
           
-           let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+           let deleteAction = UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: .destructive) { _ in
                completion()
            }
            

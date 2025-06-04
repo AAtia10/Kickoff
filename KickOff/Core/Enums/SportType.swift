@@ -21,7 +21,8 @@ enum SportType: String, CaseIterable,Decodable {
         }
     }
 
+
     var displayName: String {
-        return self.rawValue.capitalized
+        return NSLocalizedString(self.rawValue, comment: "")
     }
 }
