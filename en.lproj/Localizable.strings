@@ -26,3 +26,6 @@
 "no_internet_connection"="No Internet Connection";
 "internet_msg"="Please check your internet and try again.";
 "ok"="OK";
+
+"home"="Home";
+"fav"="Favourites";
