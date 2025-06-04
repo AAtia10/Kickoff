@@ -17,3 +17,21 @@ class FormatUtils {
         return scores
     }
 }
+
+extension String {
+    func convertEnglishDigitsToArabic() -> String {
+        let arabicNumbers = ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"]
+        var converted = ""
+        
+        for char in self {
+            if let digit = char.wholeNumberValue {
+                converted.append(arabicNumbers[digit])
+            } else {
+                converted.append(char)
+            }
+        }
+        
+        return converted
+    }
+}
+
