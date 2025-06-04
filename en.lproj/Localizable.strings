@@ -12,3 +12,12 @@
 
 
 "favourite_header"="Favourite Leagues";
+
+
+"gk" = "Goalkeepers";
+"def" = "Defenders";
+"mdf" = "Midfielders";
+"fwd" = "Forwards";
+"others" = "Others";
+"coach" = "Coach";
+

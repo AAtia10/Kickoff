@@ -67,24 +67,32 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
                     self.playerSections = Dictionary(grouping: players) { player in
                         switch player.player_type?.lowercased() {
                         case "goalkeepers":
-                            return "Goalkeepers"
+                            return  NSLocalizedString("gk", comment: "")
                         case "defenders":
-                            return "Defenders"
+                            return NSLocalizedString("def", comment: "")
                         case "midfielders":
-                            return "Midfielders"
+                            return  NSLocalizedString("mdf", comment: "")
                         case "forwards":
-                            return "Forwards"
+                           return NSLocalizedString("fwd", comment: "")
                         default:
-                            return "Others"
+                            return NSLocalizedString("others", comment: "")
                         }
                     }
                 }
 
                 if let _ = team.coaches, !team.coaches!.isEmpty {
-                    self.sectionTitles = ["Coach"]
+                    self.sectionTitles = [NSLocalizedString("coach", comment: "")]
+
                 }
                 
-                let order = ["Goalkeepers", "Defenders", "Midfielders", "Forwards", "Others"]
+                let order = [
+                    NSLocalizedString("gk", comment: ""),
+                    NSLocalizedString("def", comment: ""),
+                    NSLocalizedString("mdf", comment: ""),
+                    NSLocalizedString("fwd", comment: ""),
+                    NSLocalizedString("others", comment: "")
+                ]
+
                 self.sectionTitles += order.filter { self.playerSections[$0] != nil }
 
                 self.teamTable.reloadData()
@@ -101,7 +109,8 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             let title = sectionTitles[section]
-            if title == "Coach" {
+            if title == NSLocalizedString("coach", comment: "") {
+ 
                 return team?.coaches?.count ?? 0
             }
             return playerSections[title]?.count ?? 0
@@ -112,11 +121,12 @@ class TeamDetailsViewController: UIViewController, TeamDetailsProtocol, UITableV
             let title = sectionTitles[indexPath.section]
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlayerDetailsCell
 
-            if title == "Coach" {
+        if title == NSLocalizedString("coach", comment: "") {
+
                 if let coach = team?.coaches?[indexPath.row] {
                     cell.playerName.text = coach.coach_name
                     cell.playerNumber.text = coach.coach_country
-                    cell.playerImage.image = UIImage(named: "coach")
+                    cell.playerImage.image = UIImage(named: "manager")
                 }
             } else {
                 if let player = playerSections[title]?[indexPath.row] {

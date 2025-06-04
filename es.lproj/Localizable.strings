@@ -13,3 +13,10 @@
 "favourite_header" = "Ligas favoritas";
 
 
+"gk" = "Porteros";
+"def" = "Defensores";
+"mdf" = "Centrocampistas";
+"fwd" = "Delanteros";
+"others" = "Otros";
+"coach" = "Entrenador";
+
