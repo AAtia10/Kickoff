@@ -159,7 +159,7 @@ class FavViewController: UITableViewController,FavViewProtocol {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "Favourite Leagues"
+        NSLocalizedString("favourite_header", comment: "")
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
