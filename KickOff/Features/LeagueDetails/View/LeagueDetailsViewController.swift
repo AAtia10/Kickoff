@@ -336,7 +336,7 @@ class LeagueDetailsViewController: UICollectionViewController , LeagueDetailsPro
         NetworkManager.isInternetAvailable  { isConnected in
             DispatchQueue.main.async {
                 if isConnected {
-                    if(indexPath.section == 2 && self.sport == .football){
+                    if(indexPath.section == 0 && self.sport == .football){
                         let team = self.teams[indexPath.item]
                         self.navigateToTeamDetails(team: team)
                     }

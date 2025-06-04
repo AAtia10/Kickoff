@@ -1,0 +1,114 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "K4s-Nh-uBz.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Meet the Teams. Know the Players.\\nSee team logos, coaches, and player rosters — all at your fingertips.\"; ObjectID = \"K4s-Nh-uBz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعرّف على الفرق. تعرّف على اللاعبين.\nشاهد شعارات الفرق والمدربين وقوائم اللاعبين - كل ذلك في متناول يدك."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Meet the Teams. Know the Players.\nSee team logos, coaches, and player rosters — all at your fingertips."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conoce a los equipos. Conoce a los jugadores.\nConsulta los logotipos de los equipos, los entrenadores y las listas de jugadores: todo al alcance de tu mano."
+          }
+        }
+      }
+    },
+    "KqF-zX-JjE.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Let's Start\"; ObjectID = \"KqF-zX-JjE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "هيا بنا لنبدآ"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Let's Start"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vamos a empezar"
+          }
+        }
+      }
+    },
+    "KqF-zX-JjE.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"KqF-zX-JjE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "ktz-BY-F2V.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Follow Every League, Every Match! Explore Football, Cricket, Tennis, and Basketball leagues from around the world — all in one place.\"; ObjectID = \"ktz-BY-F2V\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تابع كل دوري، كل مباراة! استكشف دوريات كرة القدم، الكريكيت، التنس، وكرة السلة من جميع أنحاء العالم - كل ذلك في مكان واحد."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Follow Every League, Every Match! Explore Football, Cricket, Tennis, and Basketball leagues from around the world — all in one place."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Sigue cada liga y cada partido! Explora ligas de fútbol, ​​críquet, tenis y baloncesto de todo el mundo, todo en un mismo lugar."
+          }
+        }
+      }
+    },
+    "xR0-tf-E8V.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Never Miss a Match Again!\\nGet instant access to past results, upcoming matches, and detailed team info.\"; ObjectID = \"xR0-tf-E8V\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا تفوّت أي مباراة بعد الآن!\nتمتع بوصول فوري إلى النتائج السابقة، والمباريات القادمة، ومعلومات مفصلة عن الفريق."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Never Miss a Match Again!\nGet instant access to past results, upcoming matches, and detailed team info."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡No te pierdas ningún partido!\nAccede al instante a resultados pasados, próximos partidos e información detallada del equipo."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
