@@ -9,3 +9,6 @@
 
 "confirm" = "Confirm";
 "delete_message" = "Are you sure you want to remove this from favorites?";
+
+
+"favourite_header"="Favourite Leagues";
