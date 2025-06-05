@@ -197,10 +197,6 @@
 		9D47095B2DF1BAC70006587D /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		9D47095C2DF1BAC70006587D /* favlottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favlottie.json; sourceTree = "<group>"; };
 		9D4709752DF1CAC70006587D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyCell.xib; sourceTree = "<group>"; };
-		9D4709782DF1CADC0006587D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmptyCell.strings; sourceTree = "<group>"; };
-		9D47097A2DF1CAF00006587D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/EmptyCell.strings; sourceTree = "<group>"; };
-		9D47097C2DF1CAF30006587D /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mul; path = mul.lproj/EmptyCell.strings; sourceTree = "<group>"; };
-		9D47097E2DF1CAF30006587D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/EmptyCell.strings; sourceTree = "<group>"; };
 		9D5A896E2DEBEA55009F891A /* TeamDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsPresenter.swift; sourceTree = "<group>"; };
 		9D7D3DF12DE87032000AC249 /* KickOff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KickOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7D3DF42DE87032000AC249 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1096,10 +1092,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				9D4709752DF1CAC70006587D /* Base */,
-				9D4709782DF1CADC0006587D /* en */,
-				9D47097A2DF1CAF00006587D /* ar */,
-				9D47097C2DF1CAF30006587D /* mul */,
-				9D47097E2DF1CAF30006587D /* es */,
 			);
 			name = EmptyCell.xib;
 			sourceTree = "<group>";

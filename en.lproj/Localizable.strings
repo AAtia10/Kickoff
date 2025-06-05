@@ -34,3 +34,5 @@
 "teams" = "Teams";
 "upcoming_matches" = "Upcoming Matches";
 "last_matches" = "Last Matches";
+
+"no"="No Events Avaliable";
