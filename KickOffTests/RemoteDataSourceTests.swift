@@ -33,7 +33,7 @@ final class RemoteDataSourceTests: XCTestCase {
             }
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5)
+        waitForExpectations(timeout: 10)
     }
     
     func testGetTeamDetails(){
@@ -49,7 +49,7 @@ final class RemoteDataSourceTests: XCTestCase {
             }
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5)
+        waitForExpectations(timeout: 10)
     }
     
     func testGetTeamsOfleagues(){
@@ -65,7 +65,7 @@ final class RemoteDataSourceTests: XCTestCase {
             }
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5)
+        waitForExpectations(timeout: 10)
     }
     
     func testGetFixtures(){
@@ -82,7 +82,7 @@ final class RemoteDataSourceTests: XCTestCase {
             }
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5)
+        waitForExpectations(timeout: 10)
     }
     
     func testGetTennisFixtures(){
@@ -99,7 +99,7 @@ final class RemoteDataSourceTests: XCTestCase {
             }
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5)
+        waitForExpectations(timeout: 10)
     }
     
     func testGetTennisPlayersOfLeagues(){
@@ -115,7 +115,7 @@ final class RemoteDataSourceTests: XCTestCase {
             }
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5)
+        waitForExpectations(timeout: 10)
     }
 
 }

@@ -18,15 +18,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="412" height="110"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccerball" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3et-E4-RlP">
-                        <rect key="frame" x="57.666666666666657" y="17" width="48" height="47.999999999999986"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="3et-E4-RlP">
+                        <rect key="frame" x="57.666666666666657" y="16.000000000000004" width="48" height="49.333333333333343"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="49.329999999999998" id="RP4-2H-ITv"/>
                             <constraint firstAttribute="width" constant="48" id="lv5-DC-Lxq"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccerball" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bol-GS-HUq">
-                        <rect key="frame" x="306.33333333333331" y="17" width="48" height="46.666666666666671"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="bol-GS-HUq">
+                        <rect key="frame" x="306.33333333333331" y="16" width="48" height="48"/>
                         <color key="tintColor" systemColor="systemRedColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="48" id="fR1-6y-rwZ"/>
@@ -34,39 +34,39 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brousia Dortmond" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLt-Ge-zm4">
-                        <rect key="frame" x="8" y="81.333333333333329" width="147.66666666666666" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="8" y="81.333333333333329" width="147.66666666666666" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PSG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOt-kx-Ctw">
-                        <rect key="frame" x="256.33333333333331" y="80" width="147.66666666666669" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="256.33333333333331" y="80" width="147.66666666666669" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuk-rm-b2t">
                         <rect key="frame" x="137.66666666666666" y="40.666666666666664" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txv-OQ-0CS">
                         <rect key="frame" x="274.33333333333331" y="40" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ic7-c6-ALN">
                         <rect key="frame" x="199.66666666666666" y="22.666666666666668" width="13" height="34.666666666666657"/>
                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2025-04-25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0z-LC-qmX">
-                        <rect key="frame" x="170.66666666666666" y="65.333333333333329" width="71" height="14.333333333333329"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="165.33333333333334" y="65.333333333333329" width="81.333333333333343" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -106,7 +106,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="soccerball" catalog="system" width="128" height="123"/>
+        <image name="teamPlaceHolder" width="512" height="512"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

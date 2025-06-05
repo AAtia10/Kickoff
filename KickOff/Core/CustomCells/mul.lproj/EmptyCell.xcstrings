@@ -1,0 +1,30 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "nnb-jA-Ee8.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No Events Avaliable\"; ObjectID = \"nnb-jA-Ee8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد أحداث متاحة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No Events Avaliable"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay eventos disponibles"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

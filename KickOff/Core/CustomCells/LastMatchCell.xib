@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="LastMatchCell" customModule="KickOff" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="325" height="140"/>
+            <rect key="frame" x="0.0" y="0.0" width="325" height="148"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="325" height="140"/>
+                <rect key="frame" x="0.0" y="0.0" width="325" height="148"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccerball" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="l7b-vz-Q7D">
-                        <rect key="frame" x="30.666666666666671" y="17" width="64" height="62.666666666666671"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="l7b-vz-Q7D">
+                        <rect key="frame" x="23.333333333333329" y="16" width="64" height="64"/>
                         <color key="tintColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="LEf-zk-Ma5"/>
@@ -27,27 +27,39 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team1Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vd-cP-Mvh">
-                        <rect key="frame" x="16" y="96" width="93" height="20.333333333333329"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="16" y="96" width="78.333333333333329" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccerball.inverse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="O4B-sk-rX6">
-                        <rect key="frame" x="229" y="17" width="64" height="62.666666666666671"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teamPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="O4B-sk-rX6">
+                        <rect key="frame" x="236.66666666666663" y="16" width="64" height="64"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="64" id="jz5-hV-Agu"/>
                             <constraint firstAttribute="width" constant="64" id="nda-zW-WXI"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team2Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKg-LM-mtx">
-                        <rect key="frame" x="213" y="96" width="96" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team2Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKg-LM-mtx">
+                        <rect key="frame" x="228" y="96" width="81" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZl-ZE-QA6">
-                        <rect key="frame" x="144" y="66.333333333333329" width="37" height="32.333333333333329"/>
-                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                        <rect key="frame" x="148" y="32.333333333333336" width="29" height="31.666666666666664"/>
+                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="27"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wH-o3-HJj">
+                        <rect key="frame" x="132" y="72" width="61.333333333333343" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2024-05-25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SE-5t-BvT">
+                        <rect key="frame" x="122" y="119" width="81" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -58,27 +70,32 @@
                 <constraint firstItem="aKg-LM-mtx" firstAttribute="top" secondItem="8Vd-cP-Mvh" secondAttribute="top" id="A1t-kb-7Cf"/>
                 <constraint firstItem="8Vd-cP-Mvh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="HXM-ww-Vbc"/>
                 <constraint firstAttribute="trailing" secondItem="aKg-LM-mtx" secondAttribute="trailing" constant="16" id="LyY-aD-G3m"/>
+                <constraint firstItem="tZl-ZE-QA6" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="SC2-Ay-xTa"/>
                 <constraint firstItem="l7b-vz-Q7D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="WbV-RV-vcB"/>
-                <constraint firstItem="tZl-ZE-QA6" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="YDD-dF-mdv"/>
-                <constraint firstItem="tZl-ZE-QA6" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="dS2-aN-qbN"/>
+                <constraint firstItem="8SE-5t-BvT" firstAttribute="top" secondItem="aKg-LM-mtx" secondAttribute="bottom" constant="6" id="jMn-X8-EQ1"/>
+                <constraint firstItem="8SE-5t-BvT" firstAttribute="centerX" secondItem="tZl-ZE-QA6" secondAttribute="centerX" id="lLh-qS-fSI"/>
+                <constraint firstItem="tZl-ZE-QA6" firstAttribute="centerY" secondItem="O4B-sk-rX6" secondAttribute="centerY" id="mKn-gx-yRW"/>
                 <constraint firstItem="l7b-vz-Q7D" firstAttribute="centerX" secondItem="8Vd-cP-Mvh" secondAttribute="centerX" id="n7E-By-N6G"/>
                 <constraint firstItem="8Vd-cP-Mvh" firstAttribute="top" secondItem="l7b-vz-Q7D" secondAttribute="bottom" constant="16" id="ncO-Dp-9XH"/>
+                <constraint firstItem="4wH-o3-HJj" firstAttribute="top" secondItem="tZl-ZE-QA6" secondAttribute="bottom" constant="8" id="pxe-Qx-dFW"/>
                 <constraint firstItem="O4B-sk-rX6" firstAttribute="centerX" secondItem="aKg-LM-mtx" secondAttribute="centerX" id="tvD-9A-3n5"/>
                 <constraint firstItem="O4B-sk-rX6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="wIU-fw-pAh"/>
+                <constraint firstItem="4wH-o3-HJj" firstAttribute="centerX" secondItem="tZl-ZE-QA6" secondAttribute="centerX" id="wUK-Fj-g5b"/>
             </constraints>
-            <size key="customSize" width="325" height="144"/>
+            <size key="customSize" width="325" height="152"/>
             <connections>
                 <outlet property="awayImageView" destination="O4B-sk-rX6" id="s9Q-6m-zXZ"/>
                 <outlet property="awayLabel" destination="aKg-LM-mtx" id="opW-gv-R1n"/>
+                <outlet property="dateLabel" destination="8SE-5t-BvT" id="uWv-rN-iay"/>
                 <outlet property="homeImageView" destination="l7b-vz-Q7D" id="4FD-2e-APV"/>
                 <outlet property="homeLabel" destination="8Vd-cP-Mvh" id="N2V-eD-LmZ"/>
+                <outlet property="timeLabel" destination="4wH-o3-HJj" id="OSK-e8-d9P"/>
             </connections>
-            <point key="canvasLocation" x="436" y="-123"/>
+            <point key="canvasLocation" x="435.87786259541986" y="-120.42253521126761"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="soccerball" catalog="system" width="128" height="123"/>
-        <image name="soccerball.inverse" catalog="system" width="128" height="123"/>
+        <image name="teamPlaceHolder" width="512" height="512"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

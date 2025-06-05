@@ -1,15 +1,17 @@
 
 /* Class = "UILabel"; text = "Meet the Teams. Know the Players.\nSee team logos, coaches, and player rosters — all at your fingertips."; ObjectID = "K4s-Nh-uBz"; */
-"K4s-Nh-uBz.text" = "Meet the Teams. Know the Players.\nSee team logos, coaches, and player rosters — all at your fingertips.";
+"K4s-Nh-uBz.text" = "تعرّف على الفرق. تعرّف على اللاعبين.
+شاهد شعارات الفرق والمدربين وقوائم اللاعبين - كل ذلك في متناول يدك.";
 
 /* Class = "UIButton"; configuration.title = "Let's Start"; ObjectID = "KqF-zX-JjE"; */
-"KqF-zX-JjE.configuration.title" = "Let's Start";
+"KqF-zX-JjE.configuration.title" = "هيا بنا لنبدآ";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KqF-zX-JjE"; */
 "KqF-zX-JjE.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Follow Every League, Every Match! Explore Football, Cricket, Tennis, and Basketball leagues from around the world — all in one place."; ObjectID = "ktz-BY-F2V"; */
-"ktz-BY-F2V.text" = "Follow Every League, Every Match! Explore Football, Cricket, Tennis, and Basketball leagues from around the world — all in one place.";
+"ktz-BY-F2V.text" = "تابع كل دوري، كل مباراة! استكشف دوريات كرة القدم، الكريكيت، التنس، وكرة السلة من جميع أنحاء العالم - كل ذلك في مكان واحد.";
 
 /* Class = "UILabel"; text = "Never Miss a Match Again!\nGet instant access to past results, upcoming matches, and detailed team info."; ObjectID = "xR0-tf-E8V"; */
-"xR0-tf-E8V.text" = "Never Miss a Match Again!\nGet instant access to past results, upcoming matches, and detailed team info.";
+"xR0-tf-E8V.text" = "لا تفوّت أي مباراة بعد الآن!
+تمتع بوصول فوري إلى النتائج السابقة، والمباريات القادمة، ومعلومات مفصلة عن الفريق.";

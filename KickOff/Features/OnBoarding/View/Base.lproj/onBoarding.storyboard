@@ -49,6 +49,7 @@
                             <constraint firstItem="ktz-BY-F2V" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="ocf-6z-ng7"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

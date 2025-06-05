@@ -25,7 +25,7 @@ class FavViewController: UITableViewController,FavViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = NSLocalizedString("fav", comment: "")
+        //self.title = NSLocalizedString("fav", comment: "")
 
         presenter=FavPresenter(view:self)
     

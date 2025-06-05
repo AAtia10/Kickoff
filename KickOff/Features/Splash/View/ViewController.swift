@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         animationView.play()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
             
-            self?.navigateToHome()
+            self?.navigateToOnBoarding()
             
            }
         
@@ -41,13 +41,21 @@ class ViewController: UIViewController {
         navigationController?.setViewControllers([onboardingVC], animated: true)
     }
     
-    func navigateToHome(){
+    func navigateToHome() {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         if let tabBarController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as? UITabBarController {
+            
+            if let viewControllers = tabBarController.viewControllers {
+                if viewControllers.count > 0 {
+                    viewControllers[0].tabBarItem.title = NSLocalizedString("home", comment: "")
+                }
+                if viewControllers.count > 1 {
+                    viewControllers[1].tabBarItem.title = NSLocalizedString("fav", comment: "")
+                }
+            }
             self.navigationController?.setViewControllers([tabBarController], animated: true)
         }
     }
-    
     
     
 

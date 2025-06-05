@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -57,6 +57,10 @@
 		BB6D2E482DECA3AA00BB282E /* TeamDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6D2E412DECA3AA00BB282E /* TeamDetails.storyboard */; };
 		BB6D2E492DECA3AA00BB282E /* PlayerDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB6D2E422DECA3AA00BB282E /* PlayerDetailsCell.xib */; };
 		BB6D2E4A2DECA3AA00BB282E /* PlayerDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D2E432DECA3AA00BB282E /* PlayerDetailsCell.swift */; };
+		BB85CA1B2DF0E85200DDFCD0 /* FakeRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB85CA1A2DF0E85200DDFCD0 /* FakeRemoteDataSource.swift */; };
+		BB85CA1D2DF0EA9900DDFCD0 /* NetworkMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB85CA1C2DF0EA9900DDFCD0 /* NetworkMockTests.swift */; };
+		BB85CA202DF10EF500DDFCD0 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB85CA1E2DF10EF500DDFCD0 /* EmptyCell.swift */; };
+		BB85CA222DF114FC00DDFCD0 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB85CA242DF114FC00DDFCD0 /* EmptyCell.xib */; };
 		BBA8E2EA2DEAD67E00B4CD45 /* LeaugeDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA8E2E92DEAD67E00B4CD45 /* LeaugeDetailsPresenter.swift */; };
 		BBA8E2F02DEAD90E00B4CD45 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA8E2EF2DEAD90E00B4CD45 /* Match.swift */; };
 		BBA8E3032DEB16F600B4CD45 /* TeamsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA8E3022DEB16F600B4CD45 /* TeamsResponse.swift */; };
@@ -170,6 +174,12 @@
 		BB6D2E412DECA3AA00BB282E /* TeamDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamDetails.storyboard; sourceTree = "<group>"; };
 		BB6D2E422DECA3AA00BB282E /* PlayerDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerDetailsCell.xib; sourceTree = "<group>"; };
 		BB6D2E432DECA3AA00BB282E /* PlayerDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailsCell.swift; sourceTree = "<group>"; };
+		BB85CA1A2DF0E85200DDFCD0 /* FakeRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRemoteDataSource.swift; sourceTree = "<group>"; };
+		BB85CA1C2DF0EA9900DDFCD0 /* NetworkMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMockTests.swift; sourceTree = "<group>"; };
+		BB85CA1E2DF10EF500DDFCD0 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
+		BB85CA232DF114FC00DDFCD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyCell.xib; sourceTree = "<group>"; };
+		BB85CA252DF114FC00DDFCD0 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/EmptyCell.xcstrings; sourceTree = "<group>"; };
+		BB85CA272DF1157A00DDFCD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/onBoarding.strings; sourceTree = "<group>"; };
 		BBA8E2E92DEAD67E00B4CD45 /* LeaugeDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaugeDetailsPresenter.swift; sourceTree = "<group>"; };
 		BBA8E2EF2DEAD90E00B4CD45 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		BBA8E3022DEB16F600B4CD45 /* TeamsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsResponse.swift; sourceTree = "<group>"; };
@@ -325,6 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				9D7D3E0E2DE87040000AC249 /* RemoteDataSourceTests.swift */,
+				BB85CA1A2DF0E85200DDFCD0 /* FakeRemoteDataSource.swift */,
+				BB85CA1C2DF0EA9900DDFCD0 /* NetworkMockTests.swift */,
 			);
 			path = KickOffTests;
 			sourceTree = "<group>";
@@ -440,6 +452,8 @@
 				BB6D2DF72DEC57BE00BB282E /* TennisGameCell.xib */,
 				BBF55F0B2DEDD8B3001996E5 /* CricketGameCell.swift */,
 				BBF55F0C2DEDD8B3001996E5 /* CricketGameCell.xib */,
+				BB85CA1E2DF10EF500DDFCD0 /* EmptyCell.swift */,
+				BB85CA242DF114FC00DDFCD0 /* EmptyCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -791,6 +805,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB85CA222DF114FC00DDFCD0 /* EmptyCell.xib in Resources */,
 				9D47086C2DF0927D0006587D /* Localizable.strings in Resources */,
 				BBBAE32C2DEF964A00A9D68C /* favlottie.json in Resources */,
 				BBC2D2E22DE8B8EB002278F1 /* splash.json in Resources */,
@@ -918,6 +933,7 @@
 				BB6D2E472DECA3AA00BB282E /* TeamDetailsViewController.swift in Sources */,
 				BBA8E2F02DEAD90E00B4CD45 /* Match.swift in Sources */,
 				9D4708642DF091AA0006587D /* DateUtils.swift in Sources */,
+				BB85CA202DF10EF500DDFCD0 /* EmptyCell.swift in Sources */,
 				BBC005E42DE9B72100DE1FF3 /* LocalDataSource.swift in Sources */,
 				BBBF5CA32DEA4E7B00E60FFC /* LastMatchCell.swift in Sources */,
 				9DD7DAA62DE9ECCC001C7900 /* LeaguesTableViewCell.swift in Sources */,
@@ -935,7 +951,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB85CA1D2DF0EA9900DDFCD0 /* NetworkMockTests.swift in Sources */,
 				9D7D3E0F2DE87040000AC249 /* RemoteDataSourceTests.swift in Sources */,
+				BB85CA1B2DF0E85200DDFCD0 /* FakeRemoteDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +996,7 @@
 				9D4708532DF090AF0006587D /* Base */,
 				9D47086F2DF093430006587D /* ar */,
 				9D4708722DF093620006587D /* es */,
+				BB85CA272DF1157A00DDFCD0 /* en */,
 			);
 			name = onBoarding.storyboard;
 			sourceTree = "<group>";
@@ -1010,6 +1029,15 @@
 				9D4708712DF0935C0006587D /* es */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BB85CA242DF114FC00DDFCD0 /* EmptyCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB85CA232DF114FC00DDFCD0 /* Base */,
+				BB85CA252DF114FC00DDFCD0 /* mul */,
+			);
+			name = EmptyCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

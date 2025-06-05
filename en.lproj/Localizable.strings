@@ -29,3 +29,8 @@
 
 "home"="Home";
 "fav"="Favourites";
+
+"players" = "Players";
+"teams" = "Teams";
+"upcoming_matches" = "Upcoming Matches";
+"last_matches" = "Last Matches";

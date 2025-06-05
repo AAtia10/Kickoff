@@ -1,15 +1,16 @@
 
 import UIKit
 
-protocol TennisLeagueDetailsProtocol {
-    func loadLastGames(matches : [TennisMatch])
-    func loadUpcomingGames(matches : [TennisMatch])
-    func loadPlayers(players : [TennisPlayer])
+protocol TennisLeagueDetailsProtocol {    
+    func loadData(lastMatches:[TennisMatch] , upcomingMatches:[TennisMatch] , players:[TennisPlayer])
+    func loadFavState(isFav:Bool)
 }
 
 
 class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetailsProtocol {
+   
     
+    var isFav=false
     var sport : SportType = .tennis
     var league : League?
     
@@ -30,14 +31,15 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
         
         navigationItem.rightBarButtonItem = heartButton
         
+        view.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .clear
+        collectionView.alpha = 0
+        LoadingIndicatorUtil.shared.show(on: view)
+        
         presenter = TennisDetailsPresenter(view: self)
-        presenter?.fetchUpcomingMatches(sport: sport, leagueId: leagueId)
-        presenter?.fetchLastMatches(sport: sport, leagueId: leagueId)
-        presenter?.fetchPlayers(leagueId: leagueId)
+        presenter?.fetchData(sport: sport, leagueId: leagueId)
+        presenter?.isFav(leagueId: leagueId)
         
-        
-       
-
         collectionView.collectionViewLayout = createLayout()
         
         collectionView.register(UINib(nibName: "LastMatchCell", bundle: nil), forCellWithReuseIdentifier: "LastMatchCell")
@@ -45,18 +47,57 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
         collectionView.register(UINib(nibName: "TennisGameCell", bundle: nil), forCellWithReuseIdentifier: "TennisGameCell")
         
         collectionView.register(UINib(nibName: "TeamCell", bundle: nil), forCellWithReuseIdentifier: "TeamCell")
+        
+        collectionView.register(UINib(nibName: "EmptyCell", bundle: nil), forCellWithReuseIdentifier: "EmptyCell")
+
+        
+        collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.identifier)
+
     }
     
     @objc func onFavTapped() {
-        print("fav Tapped")
+        guard let league = league else { return }
+           let leagueId = league.league_key
+        
+           if isFav {
+               AlertManager.showDeleteAlert(on: self,
+                                            title: NSLocalizedString("confirm", comment: ""),
+                                            message: NSLocalizedString("delete_message", comment: "")
+               ){
+                   self.presenter?.removeFromFav(leagueId: leagueId)
+               }
+           } else {
+               let localLeague = LocalLeague(fromLeague: league, sport: sport ?? .football)
+               presenter?.addToFav(league: localLeague)
+           }
+    }
+    
+    
+    func loadData(lastMatches: [TennisMatch], upcomingMatches: [TennisMatch], players: [TennisPlayer]) {
+        loadUpcomingGames(matches: upcomingMatches)
+        loadLastGames(matches: lastMatches)
+        loadPlayers(players: players)
+        UIView.animate(withDuration: 0.3) {
+                self.collectionView.alpha = 1
+            }
+        LoadingIndicatorUtil.shared.hide()
+    }
+    
+    func loadFavState(isFav: Bool) {
+        self.isFav = isFav
+        if(isFav){
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+        }else{
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+        }
     }
     
     func createLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, environment in
             switch sectionIndex {
-            case 0: return self.createLastMatchesSection()
-            case 1: return self.createUpcomingMatchesSection()
-            default: return self.createTeamsSection()
+            case 0: return self.createTeamsSection()
+            case 1: return self.createLastMatchesSection()
+            default: return self.createUpcomingMatchesSection()
             }
         }
     }
@@ -66,17 +107,24 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
       , heightDimension: .fractionalHeight(1))
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
       
-      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75)
+      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
                                              , heightDimension: .fractionalHeight(0.18))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize
       , subitems: [item])
-          group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8
-          , bottom: 8, trailing: 8)
+          group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16
+          , bottom: 8, trailing: 16)
           
       let section = NSCollectionLayoutSection(group: group)
           section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
           , bottom: 0, trailing: 0)
           section.orthogonalScrollingBehavior = .continuous
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+           let header = NSCollectionLayoutBoundarySupplementaryItem(
+               layoutSize: headerSize,
+               elementKind: UICollectionView.elementKindSectionHeader,
+               alignment: .top)
+           section.boundarySupplementaryItems = [header]
         
          return section
     }
@@ -97,6 +145,13 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
                                                         , bottom: 0, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+           let header = NSCollectionLayoutBoundarySupplementaryItem(
+               layoutSize: headerSize,
+               elementKind: UICollectionView.elementKindSectionHeader,
+               alignment: .top)
+           section.boundarySupplementaryItems = [header]
         return section
     }
     
@@ -115,6 +170,14 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
                                                         , bottom: 0, trailing: 0)
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+           let header = NSCollectionLayoutBoundarySupplementaryItem(
+               layoutSize: headerSize,
+               elementKind: UICollectionView.elementKindSectionHeader,
+               alignment: .top)
+           section.boundarySupplementaryItems = [header]
+        
         return section
     }
 
@@ -131,36 +194,47 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         switch section {
-        case 0: return upcomingMatches.count
-        case 1: return lastMatches.count
-        default: return players.count
+        case 0: return players.count
+        case 1: return upcomingMatches.isEmpty ? 1 : upcomingMatches.count
+        default: return lastMatches.isEmpty ? 1 : lastMatches.count
         }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
-        case 0:
+        case 1:
+            if upcomingMatches.isEmpty {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCell", for: indexPath) as! EmptyCell
+                return cell
+            }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastMatchCell", for: indexPath) as! LastMatchCell
             let match = upcomingMatches[indexPath.item]
             
             cell.homeLabel.text = match.eventFirstPlayer
             cell.awayLabel.text = match.eventSecondPlayer
             
+            cell.dateLabel.text = match.eventDate?.toArabicDate()
+            cell.timeLabel.text = match.eventTime?.convertEnglishDigitsToArabic()
+            
             let logo1 = match.eventFirstPlayerLogo ?? ""
             let logo2 = match.eventSecondPlayerLogo ?? ""
             
 
             if let url = URL(string: logo1 ){
-                cell.homeImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+                cell.homeImageView.kf.setImage(with: url , placeholder: UIImage(named: "teamPlaceHolder"))
                 
             }
             
             if let url = URL(string: logo2){
-                cell.awayImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+                cell.awayImageView.kf.setImage(with: url , placeholder: UIImage(named: "teamPlaceHolder"))
                 
             }
             return cell
-        case 1:
+        case 2:
+            if lastMatches.isEmpty {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCell", for: indexPath) as! EmptyCell
+                return cell
+            }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TennisGameCell", for: indexPath) as! TennisGameCell
             
             let match = lastMatches[indexPath.item]
@@ -175,8 +249,8 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
                         
             var i = 0
             for s in match.scores! {
-                labels1[i]?.text = s.scoreFirst.components(separatedBy: ".").first ?? "-"
-                labels2[i]?.text = s.scoreSecond.components(separatedBy: ".").first ?? "-"
+                labels1[i]?.text = s.scoreFirst.components(separatedBy: ".").first?.convertEnglishDigitsToArabic() ?? "-"
+                labels2[i]?.text = s.scoreSecond.components(separatedBy: ".").first?.convertEnglishDigitsToArabic() ?? "-"
                 i += 1
             }
             
@@ -187,8 +261,8 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
                 let score1 = Int(results[0]) ?? 0
                 let score2 = Int(results[1]) ?? 0
 
-                cell.result1.text = results[0]
-                cell.result2.text = results[1]
+                cell.result1.text = results[0].convertEnglishDigitsToArabic()
+                cell.result2.text = results[1].convertEnglishDigitsToArabic()
 
                 if score1 < score2 {
                     cell.result1.textColor = .systemRed
@@ -200,19 +274,19 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
             }
 
             
-            cell.dateLabel.text = match.eventDate
+            cell.dateLabel.text = match.eventDate?.toArabicDate()
             
             let logo1 = match.eventFirstPlayerLogo ?? ""
             let logo2 = match.eventSecondPlayerLogo ?? ""
             
 
             if let url = URL(string: logo1 ){
-                cell.fImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+                cell.fImageView.kf.setImage(with: url , placeholder: UIImage(named: "teamPlaceHolder"))
                 
             }
             
             if let url = URL(string: logo2){
-                cell.sImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+                cell.sImageView.kf.setImage(with: url , placeholder: UIImage(named: "teamPlaceHolder"))
                 
             }
             return cell
@@ -222,59 +296,39 @@ class TennisLeagueViewController: UICollectionViewController , TennisLeagueDetai
             let player = players[indexPath.item]
             cell.teamLabel.text = player.playerName
             if let url = URL(string: player.playerLogo ?? ""){
-                cell.teamImageView.kf.setImage(with: url , placeholder: UIImage(systemName: "photo"))
+                cell.teamImageView.kf.setImage(with: url , placeholder: UIImage(named: "teamPlaceHolder"))
                 
-            }
-            
-            cell.container.backgroundColor  = UIColor { traitCollection in
-                return traitCollection.userInterfaceStyle == .dark ? .black : .white
             }
             return cell
         }
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.identifier, for: indexPath) as! SectionHeaderView
+            switch indexPath.section {
+            case 0: header.configure(with: NSLocalizedString("players", comment: ""))
+            case 1: header.configure(with: NSLocalizedString("upcoming_matches", comment: ""))
+            case 2: header.configure(with: NSLocalizedString("last_matches", comment: ""))
+            default: break
+            }
+            return header
+        }
+        return UICollectionReusableView()
     }
-    */
+
     
-    func loadLastGames(matches: [TennisMatch]) {
+    private func loadLastGames(matches: [TennisMatch]) {
         lastMatches = matches
         collectionView.reloadData()
     }
     
-    func loadUpcomingGames(matches: [TennisMatch]) {
+    private func loadUpcomingGames(matches: [TennisMatch]) {
         upcomingMatches = matches
         collectionView.reloadData()
     }
     
-    func loadPlayers(players : [TennisPlayer]) {
+    private func loadPlayers(players : [TennisPlayer]) {
         self.players = players
         collectionView.reloadData()
     }

@@ -28,4 +28,10 @@
 "home"="Alá";
 "fav"="favoritas";
 
+"players" = "Jugadores";
+"teams" = "Equipos";
+"upcoming_matches" = "Próximos partidos";
+"last_matches" = "Últimos partidos";
+
+
 

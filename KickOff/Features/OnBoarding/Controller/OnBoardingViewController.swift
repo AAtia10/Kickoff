@@ -20,6 +20,15 @@ class OnBoardingViewController: UIPageViewController , UIPageViewControllerDataS
     }()
     
     var currentPage = 0
+    
+    override func viewDidLayoutSubviews() {
+        for subview in self.view.subviews{
+            if subview is UIScrollView{
+                subview.frame = self.view.bounds
+            }
+        }
+        super.viewDidLayoutSubviews()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +36,9 @@ class OnBoardingViewController: UIPageViewController , UIPageViewControllerDataS
         if let vc = vcArray.first{
             self.setViewControllers([vc], direction: .forward, animated: true)
         }
+        let pageControl = UIPageControl.appearance(whenContainedInInstancesOf: [OnBoardingViewController.self])
+            pageControl.currentPageIndicatorTintColor = UIColor.systemBlue
+            pageControl.pageIndicatorTintColor = UIColor.lightGray
     }
     
 
