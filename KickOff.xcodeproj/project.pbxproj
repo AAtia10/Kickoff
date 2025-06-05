@@ -12,7 +12,6 @@
 		9D4708BD2DF1BA370006587D /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4708972DF1BA360006587D /* EmptyCell.swift */; };
 		9D4708BE2DF1BA370006587D /* TennisGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4708982DF1BA360006587D /* TennisGameCell.xib */; };
 		9D4708BF2DF1BA370006587D /* LastMatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4708992DF1BA360006587D /* LastMatchCell.swift */; };
-		9D4708C02DF1BA370006587D /* EmptyCell.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9D47089A2DF1BA360006587D /* EmptyCell.xcstrings */; };
 		9D4708C12DF1BA370006587D /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D47089C2DF1BA360006587D /* EmptyCell.xib */; };
 		9D4708C22DF1BA370006587D /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D47089E2DF1BA360006587D /* TeamCell.xib */; };
 		9D4708C32DF1BA370006587D /* UpcomingMatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D47089F2DF1BA360006587D /* UpcomingMatchCell.xib */; };
@@ -122,7 +121,6 @@
 		9D4708972DF1BA360006587D /* EmptyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		9D4708982DF1BA360006587D /* TennisGameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TennisGameCell.xib; sourceTree = "<group>"; };
 		9D4708992DF1BA360006587D /* LastMatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastMatchCell.swift; sourceTree = "<group>"; };
-		9D47089B2DF1BA360006587D /* mul */ = {isa = PBXFileReference; lastKnownFileType = text; name = mul; path = mul.lproj/EmptyCell.xcstrings; sourceTree = "<group>"; };
 		9D47089D2DF1BA360006587D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyCell.xib; sourceTree = "<group>"; };
 		9D47089E2DF1BA360006587D /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
 		9D47089F2DF1BA360006587D /* UpcomingMatchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpcomingMatchCell.xib; sourceTree = "<group>"; };
@@ -199,6 +197,10 @@
 		9D47095A2DF1BAC70006587D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D47095B2DF1BAC70006587D /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		9D47095C2DF1BAC70006587D /* favlottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favlottie.json; sourceTree = "<group>"; };
+		9D4709632DF1C22E0006587D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/EmptyCell.strings; sourceTree = "<group>"; };
+		9D4709652DF1C22F0006587D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EmptyCell.strings; sourceTree = "<group>"; };
+		9D4709672DF1C2310006587D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/EmptyCell.strings; sourceTree = "<group>"; };
+		9D4709692DF1C23A0006587D /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mul; path = mul.lproj/EmptyCell.strings; sourceTree = "<group>"; };
 		9D5A896E2DEBEA55009F891A /* TeamDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsPresenter.swift; sourceTree = "<group>"; };
 		9D7D3DF12DE87032000AC249 /* KickOff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KickOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7D3DF42DE87032000AC249 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -271,7 +273,6 @@
 				9D4708972DF1BA360006587D /* EmptyCell.swift */,
 				9D4708982DF1BA360006587D /* TennisGameCell.xib */,
 				9D4708992DF1BA360006587D /* LastMatchCell.swift */,
-				9D47089A2DF1BA360006587D /* EmptyCell.xcstrings */,
 				9D47089C2DF1BA360006587D /* EmptyCell.xib */,
 				9D47089E2DF1BA360006587D /* TeamCell.xib */,
 				9D47089F2DF1BA360006587D /* UpcomingMatchCell.xib */,
@@ -841,7 +842,6 @@
 				9D47095F2DF1BAC70006587D /* LaunchScreen.storyboard in Resources */,
 				9D47094E2DF1BAA00006587D /* onBoarding.strings in Resources */,
 				9D4709602DF1BAC70006587D /* splash.json in Resources */,
-				9D4708C02DF1BA370006587D /* EmptyCell.xcstrings in Resources */,
 				9D4709612DF1BAC70006587D /* favlottie.json in Resources */,
 				9D4708C12DF1BA370006587D /* EmptyCell.xib in Resources */,
 				9D47095D2DF1BAC70006587D /* LaunchScreen.strings in Resources */,
@@ -1032,18 +1032,14 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		9D47089A2DF1BA360006587D /* EmptyCell.xcstrings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D47089B2DF1BA360006587D /* mul */,
-			);
-			name = EmptyCell.xcstrings;
-			sourceTree = "<group>";
-		};
 		9D47089C2DF1BA360006587D /* EmptyCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9D47089D2DF1BA360006587D /* Base */,
+				9D4709632DF1C22E0006587D /* ar */,
+				9D4709652DF1C22F0006587D /* en */,
+				9D4709672DF1C2310006587D /* es */,
+				9D4709692DF1C23A0006587D /* mul */,
 			);
 			name = EmptyCell.xib;
 			sourceTree = "<group>";
