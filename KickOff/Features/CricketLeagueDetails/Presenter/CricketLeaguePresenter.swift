@@ -16,21 +16,41 @@ class CricketLeaguePresenter{
         self.view = view
     }
     
-    func fetchUpcomingMatches(sport:SportType , leagueId:Int){
+    func isFav(leagueId:Int){
+        let isFav = LocalDataSource.instance.isFav(key: leagueId)
+        self.view?.loadFavState(isFav: isFav)
+    }
+    
+    func removeFromFav(leagueId:Int){
+        LocalDataSource.instance.removeLeague(byKey: leagueId, completion: {
+            self.view?.loadFavState(isFav: false)
+        })
+    }
+    
+    func addToFav(league: LocalLeague){
+        LocalDataSource.instance.addLeague(league)
+        self.view?.loadFavState(isFav: true)
+    }
+    
+    func fetchData(sport:SportType , leagueId:Int){
+        fetchUpcomingMatches(sport: sport, leagueId: leagueId)
+    }
+    
+    private func fetchUpcomingMatches(sport:SportType , leagueId:Int){
         let fromDate = DateUtils.dateToday()
         let toDate = DateUtils.dateNextMonth()
         RemoteDataSource.shared.requestFixtures(sport: sport, leagueId: leagueId, from: fromDate, to: toDate){
             result in
             switch result {
             case .success(let matches):
-                self.view?.loadUpcomingGames(matches: matches)
+                self.fetchLastMatches(sport: sport, leagueId: leagueId, upcomingMatches: matches)
             case .failure(_):
-                self.view?.loadUpcomingGames(matches: [])
+                self.fetchLastMatches(sport: sport, leagueId: leagueId, upcomingMatches: [])
             }
         }
     }
     
-    func fetchLastMatches(sport:SportType , leagueId:Int){
+    private func fetchLastMatches(sport:SportType , leagueId:Int , upcomingMatches:[Match]){
         
         let fromDate = DateUtils.dateFiveYearsAgo()
         let toDate = DateUtils.dateYesterday()
@@ -39,22 +59,22 @@ class CricketLeaguePresenter{
             result in
             switch result {
             case .success(let matches):
-                self.view?.loadLastGames(matches: matches)
+                self.fetchTeams(sport:sport , leagueId:leagueId, upcomingMatches:upcomingMatches, lastMatches:matches)
             case .failure(_):
-                self.view?.loadLastGames(matches: [])
+                self.fetchTeams(sport:sport , leagueId:leagueId, upcomingMatches:upcomingMatches, lastMatches:[])
             }
         }
     }
     
-    func fetchTeams(sport:SportType , leagueId:Int){
+    private func fetchTeams(sport:SportType , leagueId:Int, upcomingMatches:[Match], lastMatches:[Match]){
         RemoteDataSource.shared.getTeamsOfLeague(sport: sport, leagueId: leagueId){
             result in
             
             switch result {
             case .success(let teams):
-                self.view?.loadTeams(teams: teams)
+                self.view?.loadData(lastMatches: lastMatches, upcomingMatches: upcomingMatches, teams: teams)
             case .failure(_):
-                self.view?.loadTeams(teams: [])
+                self.view?.loadData(lastMatches: lastMatches, upcomingMatches: upcomingMatches, teams: [])
             }
         }
     }

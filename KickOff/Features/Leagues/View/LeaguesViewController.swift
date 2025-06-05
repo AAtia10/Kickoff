@@ -95,6 +95,9 @@ class LeaguesViewController: UITableViewController,LeaguesProtocol, UISearchResu
             cell.leagueImage.tintColor = UIColor { traitCollection in
                 return traitCollection.userInterfaceStyle == .dark ? .white : .black
             }
+            cell.leagueImage.layer.borderWidth = 1
+            cell.leagueImage.layer.borderColor = UIColor.gray.cgColor
+            
         case .tennis:
             placeholerImage = UIImage(systemName: "tennisball.fill")
             cell.leagueImage.tintColor = .systemGreen

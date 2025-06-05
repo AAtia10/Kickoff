@@ -32,8 +32,6 @@ class FavViewController: UITableViewController,FavViewProtocol {
         let nib=UINib(nibName: "LeaguesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         setupEmptyStateLottie()
-        
-        
     }
     
     
@@ -100,6 +98,12 @@ class FavViewController: UITableViewController,FavViewProtocol {
         switch league.sport {
         case .football:
             placeholerImage = UIImage(systemName: "soccerball")
+            cell.leagueImage.tintColor = UIColor { traitCollection in
+                return traitCollection.userInterfaceStyle == .dark ? .white : .black
+            }
+            cell.leagueImage.layer.borderWidth = 1
+            cell.leagueImage.layer.borderColor = UIColor.gray.cgColor
+            
         case .tennis:
             placeholerImage = UIImage(systemName: "tennisball.fill")
             cell.leagueImage.tintColor = .systemGreen

@@ -8,29 +8,30 @@
 import UIKit
 import Lottie
 
-class ViewController: UIViewController {
+protocol SplashViewProtocol {
+    func navigateToOnBoarding()
+    func navigateToHome()
+}
+
+
+class ViewController: UIViewController , SplashViewProtocol {
     
   
     @IBOutlet weak var animationView: LottieAnimationView!
+    var presenter : SplashPresenter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         animationView.contentMode = .scaleAspectFit
-          
         animationView.loopMode = .loop
-          
-          
         animationView.animationSpeed = 0.5
-          
         animationView.play()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
-            
-            self?.navigateToOnBoarding()
-            
-           }
         
-        // Do any additional setup after loading the view.
+        presenter = SplashPresenter(view: self)
+        presenter?.start()
+        
     }
     
     
