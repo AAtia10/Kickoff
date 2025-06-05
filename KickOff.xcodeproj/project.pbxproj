@@ -57,8 +57,6 @@
 		BB6D2E482DECA3AA00BB282E /* TeamDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6D2E412DECA3AA00BB282E /* TeamDetails.storyboard */; };
 		BB6D2E492DECA3AA00BB282E /* PlayerDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB6D2E422DECA3AA00BB282E /* PlayerDetailsCell.xib */; };
 		BB6D2E4A2DECA3AA00BB282E /* PlayerDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D2E432DECA3AA00BB282E /* PlayerDetailsCell.swift */; };
-		BB724FB42DF1A6FB00CA1DD8 /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB724FB32DF1A6FB00CA1DD8 /* OnboardingManager.swift */; };
-		BB724FB62DF1A8AD00CA1DD8 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB724FB52DF1A8AD00CA1DD8 /* SplashPresenter.swift */; };
 		BB85CA1B2DF0E85200DDFCD0 /* FakeRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB85CA1A2DF0E85200DDFCD0 /* FakeRemoteDataSource.swift */; };
 		BB85CA1D2DF0EA9900DDFCD0 /* NetworkMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB85CA1C2DF0EA9900DDFCD0 /* NetworkMockTests.swift */; };
 		BB85CA202DF10EF500DDFCD0 /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB85CA1E2DF10EF500DDFCD0 /* EmptyCell.swift */; };
@@ -176,8 +174,6 @@
 		BB6D2E412DECA3AA00BB282E /* TeamDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamDetails.storyboard; sourceTree = "<group>"; };
 		BB6D2E422DECA3AA00BB282E /* PlayerDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerDetailsCell.xib; sourceTree = "<group>"; };
 		BB6D2E432DECA3AA00BB282E /* PlayerDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailsCell.swift; sourceTree = "<group>"; };
-		BB724FB32DF1A6FB00CA1DD8 /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
-		BB724FB52DF1A8AD00CA1DD8 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		BB85CA1A2DF0E85200DDFCD0 /* FakeRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRemoteDataSource.swift; sourceTree = "<group>"; };
 		BB85CA1C2DF0EA9900DDFCD0 /* NetworkMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMockTests.swift; sourceTree = "<group>"; };
 		BB85CA1E2DF10EF500DDFCD0 /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
@@ -276,7 +272,6 @@
 		9D4708582DF091AA0006587D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				BB724FB32DF1A6FB00CA1DD8 /* OnboardingManager.swift */,
 				9D4708592DF091AA0006587D /* FormatUtils.swift */,
 				9D47085A2DF091AA0006587D /* NetworkManager.swift */,
 				9D47085B2DF091AA0006587D /* DateUtils.swift */,
@@ -519,14 +514,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BB724FB72DF1A8B500CA1DD8 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				BB724FB52DF1A8AD00CA1DD8 /* SplashPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		BBA8E2E82DEAD65B00B4CD45 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,7 +655,6 @@
 		BBC2D2D12DE89C06002278F1 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				BB724FB72DF1A8B500CA1DD8 /* Presenter */,
 				BBC2D2D22DE89C0D002278F1 /* View */,
 			);
 			path = Splash;
@@ -947,7 +933,6 @@
 				BB6D2E472DECA3AA00BB282E /* TeamDetailsViewController.swift in Sources */,
 				BBA8E2F02DEAD90E00B4CD45 /* Match.swift in Sources */,
 				9D4708642DF091AA0006587D /* DateUtils.swift in Sources */,
-				BB724FB42DF1A6FB00CA1DD8 /* OnboardingManager.swift in Sources */,
 				BB85CA202DF10EF500DDFCD0 /* EmptyCell.swift in Sources */,
 				BBC005E42DE9B72100DE1FF3 /* LocalDataSource.swift in Sources */,
 				BBBF5CA32DEA4E7B00E60FFC /* LastMatchCell.swift in Sources */,
@@ -959,7 +944,6 @@
 				BB6D2DA12DEC1A5D00BB282E /* TennisLeagueViewController.swift in Sources */,
 				9D4708632DF091AA0006587D /* NetworkManager.swift in Sources */,
 				BBA8E3032DEB16F600B4CD45 /* TeamsResponse.swift in Sources */,
-				BB724FB62DF1A8AD00CA1DD8 /* SplashPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
