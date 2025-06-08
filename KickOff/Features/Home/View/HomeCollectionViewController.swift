@@ -16,6 +16,7 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
                                 withReuseIdentifier: SectionHeaderView.identifier)
 
     }
+    
 
     /*
     // MARK: - Navigation
@@ -55,7 +56,9 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let spacing: CGFloat = 16
-        let itemsPerRow: CGFloat = 2
+        let isPortrait = UIScreen.main.bounds.height > UIScreen.main.bounds.width
+
+        let itemsPerRow: CGFloat = isPortrait ? 2 : 4
         let totalSpacing = spacing * (itemsPerRow + 1)
         let availableWidth = collectionView.bounds.width - totalSpacing
         let itemWidth = floor(availableWidth / itemsPerRow)
@@ -63,6 +66,15 @@ class HomeCollectionViewController: UICollectionViewController , UICollectionVie
 
         return CGSize(width: itemWidth, height: itemHeight)
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }, completion: nil)
+    }
+
+
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

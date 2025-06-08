@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -87,22 +87,15 @@
 		9D7D3DF52DE87032000AC249 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DF42DE87032000AC249 /* AppDelegate.swift */; };
 		9D7D3DF72DE87032000AC249 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3DF62DE87032000AC249 /* SceneDelegate.swift */; };
 		9D7D3E0F2DE87040000AC249 /* RemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E0E2DE87040000AC249 /* RemoteDataSourceTests.swift */; };
-		9D7D3E192DE87040000AC249 /* KickOffUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E182DE87040000AC249 /* KickOffUITests.swift */; };
-		9D7D3E1B2DE87040000AC249 /* KickOffUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */; };
 		9D85D3D02DEDB370003C5940 /* KickOffCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D85D3CE2DEDB370003C5940 /* KickOffCoreData.xcdatamodeld */; };
+		BBAC5EF62DF5F67A003D9A02 /* FakeRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC5EF42DF5F679003D9A02 /* FakeRemoteDataSource.swift */; };
+		BBAC5EF72DF5F67A003D9A02 /* NetworkMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC5EF52DF5F679003D9A02 /* NetworkMockTests.swift */; };
 		BBBAE32C2DEF964A00A9D68C /* favlottie.json in Resources */ = {isa = PBXBuildFile; fileRef = BBBAE32B2DEF964900A9D68C /* favlottie.json */; };
 		BBC2D2E22DE8B8EB002278F1 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = BBC2D2E12DE8B8EA002278F1 /* splash.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		9D7D3E0B2DE8703F000AC249 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D7D3DE92DE87032000AC249 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9D7D3DF02DE87032000AC249;
-			remoteInfo = KickOff;
-		};
-		9D7D3E152DE87040000AC249 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D7D3DE92DE87032000AC249 /* Project object */;
 			proxyType = 1;
@@ -204,13 +197,12 @@
 		9D7D3E052DE8703F000AC249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D7D3E0A2DE8703F000AC249 /* KickOffTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KickOffTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7D3E0E2DE87040000AC249 /* RemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceTests.swift; sourceTree = "<group>"; };
-		9D7D3E142DE87040000AC249 /* KickOffUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KickOffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D7D3E182DE87040000AC249 /* KickOffUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickOffUITests.swift; sourceTree = "<group>"; };
-		9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickOffUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9D85D3CF2DEDB370003C5940 /* KickOffCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KickOffCoreData.xcdatamodel; sourceTree = "<group>"; };
 		9DD7DABD2DEBD793001C7900 /* TeamDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TeamDetails.storyboard; sourceTree = "<group>"; };
 		9DD7DAC62DEBD793001C7900 /* PlayerDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsCell.swift; sourceTree = "<group>"; };
 		9DD7DAC72DEBD793001C7900 /* PlayerDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDetailsCell.xib; sourceTree = "<group>"; };
+		BBAC5EF42DF5F679003D9A02 /* FakeRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeRemoteDataSource.swift; sourceTree = "<group>"; };
+		BBAC5EF52DF5F679003D9A02 /* NetworkMockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMockTests.swift; sourceTree = "<group>"; };
 		BBBAE32B2DEF964900A9D68C /* favlottie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = favlottie.json; path = KickOff/Resources/favlottie.json; sourceTree = "<group>"; };
 		BBC2D2E12DE8B8EA002278F1 /* splash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = splash.json; path = KickOff/Resources/splash.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,13 +217,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9D7D3E072DE8703F000AC249 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D7D3E112DE87040000AC249 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -650,7 +635,6 @@
 				BBC2D2E12DE8B8EA002278F1 /* splash.json */,
 				9D7D3DF32DE87032000AC249 /* KickOff */,
 				9D7D3E0D2DE8703F000AC249 /* KickOffTests */,
-				9D7D3E172DE87040000AC249 /* KickOffUITests */,
 				9D7D3DF22DE87032000AC249 /* Products */,
 				7578BFC1DC0EBCC4002C9D3F /* Pods */,
 				9DB35F2649016324CE3A3C01 /* Frameworks */,
@@ -663,7 +647,6 @@
 			children = (
 				9D7D3DF12DE87032000AC249 /* KickOff.app */,
 				9D7D3E0A2DE8703F000AC249 /* KickOffTests.xctest */,
-				9D7D3E142DE87040000AC249 /* KickOffUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -684,18 +667,11 @@
 		9D7D3E0D2DE8703F000AC249 /* KickOffTests */ = {
 			isa = PBXGroup;
 			children = (
+				BBAC5EF42DF5F679003D9A02 /* FakeRemoteDataSource.swift */,
+				BBAC5EF52DF5F679003D9A02 /* NetworkMockTests.swift */,
 				9D7D3E0E2DE87040000AC249 /* RemoteDataSourceTests.swift */,
 			);
 			path = KickOffTests;
-			sourceTree = "<group>";
-		};
-		9D7D3E172DE87040000AC249 /* KickOffUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9D7D3E182DE87040000AC249 /* KickOffUITests.swift */,
-				9D7D3E1A2DE87040000AC249 /* KickOffUITestsLaunchTests.swift */,
-			);
-			path = KickOffUITests;
 			sourceTree = "<group>";
 		};
 		9DB35F2649016324CE3A3C01 /* Frameworks */ = {
@@ -766,24 +742,6 @@
 			productReference = 9D7D3E0A2DE8703F000AC249 /* KickOffTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9D7D3E132DE87040000AC249 /* KickOffUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9D7D3E242DE87040000AC249 /* Build configuration list for PBXNativeTarget "KickOffUITests" */;
-			buildPhases = (
-				9D7D3E102DE87040000AC249 /* Sources */,
-				9D7D3E112DE87040000AC249 /* Frameworks */,
-				9D7D3E122DE87040000AC249 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9D7D3E162DE87040000AC249 /* PBXTargetDependency */,
-			);
-			name = KickOffUITests;
-			productName = KickOffUITests;
-			productReference = 9D7D3E142DE87040000AC249 /* KickOffUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -798,10 +756,6 @@
 						CreatedOnToolsVersion = 14.3.1;
 					};
 					9D7D3E092DE8703F000AC249 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = 9D7D3DF02DE87032000AC249;
-					};
-					9D7D3E132DE87040000AC249 = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = 9D7D3DF02DE87032000AC249;
 					};
@@ -825,7 +779,6 @@
 			targets = (
 				9D7D3DF02DE87032000AC249 /* KickOff */,
 				9D7D3E092DE8703F000AC249 /* KickOffTests */,
-				9D7D3E132DE87040000AC249 /* KickOffUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -867,13 +820,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9D7D3E082DE8703F000AC249 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D7D3E122DE87040000AC249 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -989,16 +935,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBAC5EF72DF5F67A003D9A02 /* NetworkMockTests.swift in Sources */,
 				9D7D3E0F2DE87040000AC249 /* RemoteDataSourceTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D7D3E102DE87040000AC249 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9D7D3E1B2DE87040000AC249 /* KickOffUITestsLaunchTests.swift in Sources */,
-				9D7D3E192DE87040000AC249 /* KickOffUITests.swift in Sources */,
+				BBAC5EF62DF5F67A003D9A02 /* FakeRemoteDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,11 +948,6 @@
 			isa = PBXTargetDependency;
 			target = 9D7D3DF02DE87032000AC249 /* KickOff */;
 			targetProxy = 9D7D3E0B2DE8703F000AC249 /* PBXContainerItemProxy */;
-		};
-		9D7D3E162DE87040000AC249 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9D7D3DF02DE87032000AC249 /* KickOff */;
-			targetProxy = 9D7D3E152DE87040000AC249 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1307,40 +1241,6 @@
 			};
 			name = Release;
 		};
-		9D7D3E252DE87040000AC249 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Abdo.KickOffUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KickOff;
-			};
-			name = Debug;
-		};
-		9D7D3E262DE87040000AC249 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Abdo.KickOffUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KickOff;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1367,15 +1267,6 @@
 			buildConfigurations = (
 				9D7D3E222DE87040000AC249 /* Debug */,
 				9D7D3E232DE87040000AC249 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9D7D3E242DE87040000AC249 /* Build configuration list for PBXNativeTarget "KickOffUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9D7D3E252DE87040000AC249 /* Debug */,
-				9D7D3E262DE87040000AC249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
